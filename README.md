@@ -3,17 +3,17 @@
 ## Setup
 1. Install `Node.js` and `npm` (Node Package Manager):
 
-Linux:
+**Linux:**
 ```bash
 sudo apt install nodejs npm
 ```
 
-MacOS:
+**MacOS:**
 ```bash
 brew install node
 ```
 
-Windows:
+**Windows:**
 ```bash
 winget install -e --id OpenJS.NodeJS
 ```
@@ -23,18 +23,31 @@ winget install -e --id OpenJS.NodeJS
 git clone https://github.com/cse110-sp23-group7/cse110_rogue.git
 ```
 
-3. Install dependencies (only dependency is `jest`):
+3. Install dependencies:
 ```bash
 npm install
 ```
 
+> Current dependencies are:
+> - `jest` for unit testing
+> - `jsdoc` for documentation generation
+
 ## Usage
-1. Run unit tests:
+### Run unit tests:
 ```bash
-npm test
+npm run test
 ```
 
-2. Launch website by opening `index.html` in a browser. Note that `index.html` will
+### Generate documentation:
+```bash
+npm run docs
+```
+
+> Docs will be generated in the `./out` directory. and can be opened using a browser. 
+These docs are generated using code comments, so be sure to **comment your code!**
+
+### Launch website: 
+- Open `index.html` in a browser. Note that `index.html` will
 automatically redirect the user to `home.html`.
 
 ## Project Structure
