@@ -1,3 +1,4 @@
+
 // Initialize the array of fortunes
 let fortunes = [];
 

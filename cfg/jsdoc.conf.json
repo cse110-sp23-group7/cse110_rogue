@@ -19,7 +19,9 @@
     "monospaceLinks": false
   },
   "opts": {
-    "template": "node_modules/minami"
+    "template": "node_modules/minami",
+    "recurse": true,
+    "destination": "./docs/"
   }
 }
 

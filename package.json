@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "jest",
-    "docs": "jsdoc -r -c cfg/jsdoc.conf.json"
+    "docs": "jsdoc -c cfg/jsdoc.conf.json"
   },
   "repository": {
     "type": "git",

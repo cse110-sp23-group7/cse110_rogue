@@ -43,7 +43,7 @@ npm run test
 npm run docs
 ```
 
-> Docs will be generated in the `./out` directory. and can be opened using a browser. 
+> Docs will be generated in the `docs` directory. and can be opened using a browser. 
 These docs are generated using code comments, so be sure to **comment your code!**
 
 ### Launch website: 
@@ -71,6 +71,6 @@ cse110_rogue/
 |   |-- buttons/        # Buttons used across all pages
 |   |-- sprites/        # Sprites used across all pages
 |-- tests/              # Unit tests, powered by Jest
-|   |-- app.test.js
+|   |-- fortune.test.js
 |-- package.json        # Project metadata. Use npm to install dependencies
 ```
