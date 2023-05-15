@@ -1,0 +1,59 @@
+# .gitignore
+
+# Node.js / npm
+node_modules/
+package-lock.json
+/yarn.lock
+
+# Build output
+/dist/
+/build/
+*.min.js
+*.min.css
+
+# IDE and editor files
+/.idea/
+/.vscode/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.lock
+*.log
+*.tmp
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Test files
+*.spec.js
+
+# Log files
+*.log
+logs/
+log/
+*.log.*
+*.log*/**/*
+
+# Temporary files
+*.tmp
+*.log
+
+# Compiled output
+*.min.js
+*.min.css
+*.gz
+*.tgz
+*.zip
+*.rar
+
+# Dependency management
+/composer.phar
+/vendor/
+/bower_components/

@@ -1,0 +1,36 @@
+/* Reset styles for consistent browser rendering */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for page title */
+h1 {
+    font-size: 48px;
+    text-align: center;
+    margin: 50px 0;
+}
+
+/* Style for button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for fortune button */
+.fortune-button {
+    background-image: url('../assets/buttons/button-blue.png');
+}
+
+/* Hover styles for buttons */
+.button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Active styles for buttons */
+.button:active {
+    transform: scale(0.9);
+}

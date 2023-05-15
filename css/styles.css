@@ -1,0 +1,38 @@
+/* Reset styles for consistent browser rendering */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base style for buttons */
+.button {
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    width: 300px;
+    color: white;
+    background-color: white;
+    border: none;
+    margin: 10px;
+    transition: all 0.3s ease;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/* Hover styles for buttons */
+.button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Active styles for buttons */
+.button:active {
+    transform: scale(0.9);
+}

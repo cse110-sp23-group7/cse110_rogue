@@ -1,0 +1,27 @@
+{
+  "name": "cse110_rogue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/home.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cse110-sp23-group7/cse110_rogue.git"
+  },
+  "author": "Team 404",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cse110-sp23-group7/cse110_rogue/issues"
+  },
+  "homepage": "https://github.com/cse110-sp23-group7/cse110_rogue#readme",
+  "dependencies": {
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0"
+  },
+  "keywords": []
+}

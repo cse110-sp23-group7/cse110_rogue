@@ -1,0 +1,28 @@
+/* Style for page title */
+h1 {
+    font-size: 48px;
+    text-align: center;
+    margin: 50px 0;
+}
+
+/* Style for button container */
+.button-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for start button */
+.start-button {
+    background-image: url('../assets/buttons/button-blue.png');
+}
+
+/* Style for credits button */
+.credits-button {
+    background-image: url('../assets/buttons/button-orange.png');
+}
+
+/* Style for help button */
+.help-button {
+    background-image: url('../assets/buttons/button-green.png');
+}
