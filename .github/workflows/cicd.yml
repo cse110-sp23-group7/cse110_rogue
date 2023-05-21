@@ -51,3 +51,9 @@ jobs:
           template: docdash
           front_page: README.md
 
+      - name: Codeclimate Coverage
+        uses: paambaati/codeclimate-action@v4.0.0
+        env:
+          CC_TEST_REPORTER_ID: ee5132235c5b90cdfc171842e359eb6c9e337500a05502b30c3462f619b3eec6
+        with:
+          debug: true
