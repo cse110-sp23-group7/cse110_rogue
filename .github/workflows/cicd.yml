@@ -1,1 +1,30 @@
 name: CI/CD Full Pipeline
+
+on:
+  push:
+    branches: ["main", "pipeline", "development"]
+  pull_request:
+    branches: ["main", "pipeline", "development"]
+
+  worflow_dispatch:
+
+jobs:
+  build:
+    name: CI/CD Full Pipeline
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+        
+      - name: Lint Code
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_JAVASCRIPT_ES: true
+          VALIDATE_CSS: true
+          VALIDATE_HTML: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
