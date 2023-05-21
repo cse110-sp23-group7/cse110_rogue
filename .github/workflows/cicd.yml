@@ -41,3 +41,13 @@ jobs:
         with:
           name: logs
           path: logs
+
+      - name: Documentation Generation
+        uses: andstor/jsdoc-action@v1.2.1
+        with:
+          source_dir: ./js
+          recurse: true
+          output_dir: ./specs/docs
+          template: docdash
+          front_page: README.md
+
