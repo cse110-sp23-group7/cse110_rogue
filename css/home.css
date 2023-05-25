@@ -3,6 +3,7 @@ h1 {
     font-size: 48px;
     text-align: center;
     margin: 50px 0;
+    font-family: "Copperplate", Copperplate, fantasy;
 }
 
 /* Style for button container */
@@ -14,15 +15,20 @@ h1 {
 
 /* Style for start button */
 .start-button {
-    background-image: url('../assets/buttons/button-blue.png');
+    background-color: lightslategray;
 }
 
 /* Style for credits button */
 .credits-button {
-    background-image: url('../assets/buttons/button-orange.png');
+    background-color: lightslategray;
 }
 
 /* Style for help button */
 .help-button {
-    background-image: url('../assets/buttons/button-green.png');
+    background-color: lightslategray;
+}
+
+/* Background color for home page */
+body {
+    background-color: rgb(227, 158, 236);
 }
