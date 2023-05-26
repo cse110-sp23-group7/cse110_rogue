@@ -1,0 +1,12 @@
+{
+    "applied_fortunes": [],
+    "effects": {
+        "rest": 50,
+        "happiness": 50,
+        "skills": {
+            "test_taking": 50,
+            "coding": 50,
+            "thinking": 50
+        }
+    }
+}
