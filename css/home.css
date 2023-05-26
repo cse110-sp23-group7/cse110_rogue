@@ -5,6 +5,10 @@ h1 {
     margin: 50px 0;
 }
 
+h2 {
+    margin: 30px;
+}
+
 /* Style for button container */
 .button-container {
     display: grid;
@@ -25,4 +29,22 @@ h1 {
 /* Style for help button */
 .help-button {
     background-image: url('../assets/buttons/button-green.png');
+}
+
+/* Style for contents*/
+ul,ol {
+    font-size: 20px;
+    margin: 60px;
+}
+div {
+    font-size: 20px;
+    margin: 60px;
+}
+
+/* Style for back button*/
+.back-button {
+    background-image: url('../assets/buttons/button-blue.png');
+    /* position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%); */
 }
