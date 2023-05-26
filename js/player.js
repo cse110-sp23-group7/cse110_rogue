@@ -1,16 +1,13 @@
 class Player {
+
+
     /**
      * Creates a new player instance from json object
      * 
      * @param {Object} player_json - json object representing player
      */
     constructor(player_json) {
-        this.effects.rest = player_json["effects"]["rest"];
-        this.effects.happiness = player_json["effects"]["happiness"];
-        this.effects.skills.test_taking = player_json["effects"]["skills"]["test_taking"];
-        this.effects.skills.coding = player_json["effects"]["skills"]["coding"];
-        this.effects.skills.thinking = player_json["effects"]["skills"]["thinking"];
-        this.applied_fortunes = player_json["applied_fortunes"];
+        this.player_obj = player_json;
     }
 
     /**
@@ -37,11 +34,12 @@ class Player {
      * @param {Object} effect - json object representing effect being applied
      */
     add_effect(effect) {
-        this.effects.rest = this.add_statistic(this.rest, effect["effects"]["rest"]);
-        this.effects.happiness = this.add_statistic(this.happiness, effect["effects"]["happiness"]);
-        this.effects.skills.test_taking = this.add_statistic(this.rest, effect["effects"]["skills"]["test_taking"]);
-        this.effects.skills.coding = this.add_statistic(this.rest, effect["effects"]["skills"]["coding"]);
-        this.effects.skills.thinking = this.add_statistic(this.rest, effect["effects"]["skills"]["thinking"]);
+        console.log(this.player_obj);
+        this.player_obj.effects.rest = this.add_statistic(this.player_obj.effects.rest, effect["effects"]["rest"]);
+        this.player_obj.effects.happiness = this.add_statistic(this.player_obj.effects.happiness, effect["effects"]["happiness"]);
+        this.player_obj.effects.skills.test_taking = this.add_statistic(this.player_obj.effects.skills.test_taking, effect["effects"]["skills"]["test_taking"]);
+        this.player_obj.effects.skills.coding = this.add_statistic(this.player_obj.effects.skills.coding, effect["effects"]["skills"]["coding"]);
+        this.player_obj.effects.skills.thinking = this.add_statistic(this.player_obj.effects.skills.thinking, effect["effects"]["skills"]["thinking"]);
     }
 
     /**
@@ -52,7 +50,7 @@ class Player {
      */
     add_fortune(fortune) {
         this.add_effect(fortune);
-        this.applied_fortunes.push(fortune["title"]);
+        this.player_obj.applied_fortunes.push(fortune["title"]);
     }
 
     /**
