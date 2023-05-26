@@ -103,7 +103,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
         let player = new Player(load_player());
         player.add_fortune(fortune);
-        localStorage.setItem('player', JSON.stringify(player));
+        localStorage.setItem('player', JSON.stringify(player.player_obj));
 
         document.querySelector(".fortune-description").innerHTML = fortune["description"];
         document.querySelector(".fortune-title").innerHTML = fortune["title"];
