@@ -34,6 +34,12 @@ body {
     background-color: lightslategray;
 }
 
+/* Style for encounter button */
+.encounter-button {
+    background-image: url('../assets/buttons/button-green.png');
+}
+
+
 /* Hover styles for buttons */
 .button:hover {
     transform: scale(1.1);
