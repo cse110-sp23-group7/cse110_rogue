@@ -20,6 +20,19 @@ function load(url) {
 }
 
 /**
+ * Loads player object from localStorage
+ * 
+ * @returns {Object} - An JSON object representing the player
+ */
+function load_player() {
+
+    let player = JSON.parse(localStorage.getItem("player"));
+    if (player != null) {
+        return player;
+    }
+}
+
+/**
  * Get a random fortune from the array of fortunes.
  * Each fortune has the following properties:
  *
@@ -65,13 +78,15 @@ function roll(array) {
  * @param b {int} Second number
  * @returns {int} The sum of the two numbers
  */
-function add(a, b){
+function add(a, b) {
     return a + b;
 }
 
 window.addEventListener("DOMContentLoaded", () => {
 
     let fortunes_list = [];
+
+    document.querySelector(".encounter-button").style.display = 'none';
 
     // When the page loads, call the load function
     load("../json/fortunes.json").then(fortunes => {
@@ -81,10 +96,14 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     // When the button is clicked, call the roll function
-    document.querySelector(".fortune-button").addEventListener("click", function(event) {
+    document.querySelector(".fortune-button").addEventListener("click", function (event) {
         event.preventDefault();
         // Roll for the fortune
         const fortune = roll(fortunes_list);
+
+        let player = new Player(load_player());
+        player.add_fortune(fortune);
+        localStorage.setItem('player', JSON.stringify(player.player_obj));
 
         document.querySelector(".fortune-description").innerHTML = fortune["description"];
         document.querySelector(".fortune-title").innerHTML = fortune["title"];
@@ -97,10 +116,14 @@ window.addEventListener("DOMContentLoaded", () => {
             "   Coding: " + fortune["effects"]["skills"]["coding"] + "<br>" +
             "   Thinking: " + fortune["effects"]["skills"]["thinking"] + "<br>";
 
+        document.querySelector(".encounter-button").style.display = 'block';
+        document.querySelector(".fortune-button").style.display = 'none';
+
     });
+
 });
 
 // Only export the functions if we are running in a Node.js environment (i.e. running tests)
 if (typeof module === 'object') {
-    module.exports = {load, roll, add};
+    module.exports = { load, roll, add };
 }
