@@ -18,17 +18,8 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-        
-      - name: Lint Code
-        uses: github/super-linter@v4
-        env:
-          VALIDATE_ALL_CODEBASE: true
-          VALIDATE_JAVASCRIPT_ES: true
-          VALIDATE_CSS: true
-          VALIDATE_HTML: true
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          fetch-depth: 0        
+          
       - uses: actions/setup-node@v1
         with:
           node-version: 18
@@ -57,4 +48,19 @@ jobs:
           CC_TEST_REPORTER_ID: ee5132235c5b90cdfc171842e359eb6c9e337500a05502b30c3462f619b3eec6
         with:
           debug: true
+          
+    
 
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Super-Linter
+        uses: super-linter/super-linter@v5.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_JAVASCRIPT_ES: true
+          VALIDATE_CSS: true
+          VALIDATE_HTML: true
