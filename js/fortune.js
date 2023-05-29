@@ -6,7 +6,7 @@
  * @param {string} url - The URL of the JSON file
  * @returns {Promise<Array>} - An array containing Fortune objects.
  */
-function load(url) {
+ function load(url) {
 
     return fetch(url)                                        // Fetch the JSON file using the fetch function
         .then(response => response.json())         // Convert the response to a JSON object
