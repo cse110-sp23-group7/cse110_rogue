@@ -2,6 +2,7 @@
   "fortunes": [
     {
       "title": "Fire Alarm",
+      "image": "/assets/pictures/fire-alarm.png",
       "description": "A fire alarm rang in your residence hall at 3 am!",
       "effects": {
         "rest": -20,
@@ -15,6 +16,7 @@
     },
     {
       "title": "Coffee",
+      "image": "/assets/pictures/coffee.png",
       "description": "You decided a coffee is just what you needed to jump start your day!",
       "effects": {
         "rest": 10,
@@ -28,6 +30,7 @@
     },
     {
       "title": "Netflix",
+      "image": "/assets/pictures/coffee.png",
       "description": "You stayed up too late binge watching again... You enjoyed the show but was it worth it?",
       "effects": {
         "rest": -20,
