@@ -1,4 +1,3 @@
-
 /**
  * Load the fortunes from the JSON file
  * **This function is asynchronous.** It returns a Promise object that will resolve to an array of fortunes.
@@ -6,30 +5,28 @@
  * @param {string} url - The URL of the JSON file
  * @returns {Promise<Array>} - An array containing Fortune objects.
  */
- function load(url) {
-
-    return fetch(url)                                        // Fetch the JSON file using the fetch function
-        .then(response => response.json())         // Convert the response to a JSON object
-        .then(data => {
-            return data.fortunes;                           // Return the list of fortunes
-        })
-        .catch(error => {
-            console.error(error)                            // Log any errors to the console
-            return [];
-        });
+function load (url) {
+  return fetch(url) // Fetch the JSON file using the fetch function
+    .then(response => response.json()) // Convert the response to a JSON object
+    .then(data => {
+      return data.fortunes // Return the list of fortunes
+    })
+    .catch(error => {
+      console.error(error) // Log any errors to the console
+      return []
+    })
 }
 
 /**
  * Loads player object from localStorage
- * 
+ *
  * @returns {Object} - An JSON object representing the player
  */
-function load_player() {
-
-    let player = JSON.parse(localStorage.getItem("player"));
-    if (player != null) {
-        return player;
-    }
+function loadPlayer () {
+  const player = JSON.parse(localStorage.getItem('player'))
+  if (player != null) {
+    return player
+  }
 }
 
 /**
@@ -59,16 +56,15 @@ function load_player() {
  * @param {Array} array - An array of fortune objects
  * @returns {Object} - A random fortune object
  */
-function roll(array) {
+function roll (array) {
+  if (array.length === 0) {
+    console.error('Array is empty')
+    return null
+  }
 
-    if (array.length === 0) {
-        console.error("Array is empty");
-        return null;
-    }
-
-    const index = Math.floor(Math.random() * array.length);
-    console.log("Rolled " + index + ": " + array[index]["title"]);
-    return array[index];
+  const index = Math.floor(Math.random() * array.length)
+  console.log('Rolled ' + index + ': ' + array[index].title)
+  return array[index]
 }
 
 /**
@@ -78,52 +74,60 @@ function roll(array) {
  * @param b {int} Second number
  * @returns {int} The sum of the two numbers
  */
-function add(a, b) {
-    return a + b;
+function add (a, b) {
+  return a + b
 }
+window.addEventListener('DOMContentLoaded', () => {
+  let fortunesList = []
 
-window.addEventListener("DOMContentLoaded", () => {
+  document.querySelector('.encounter-button').style.display = 'none'
 
-    let fortunes_list = [];
+  // When the page loads, call the load function
+  load('../json/fortunes.json').then(fortunes => {
+    console.log('Loaded ' + fortunes.length + ' fortunes')
+    console.log(fortunes)
+    fortunesList = fortunes
+  })
 
-    document.querySelector(".encounter-button").style.display = 'none';
+  const flipCards = document.querySelectorAll('.flip-card')
 
-    // When the page loads, call the load function
-    load("../json/fortunes.json").then(fortunes => {
-        console.log("Loaded " + fortunes.length + " fortunes");
-        console.log(fortunes);
-        fortunes_list = fortunes;
-    });
+  // When the flip card is clicked, call the roll function
+  flipCards.forEach(flipCard => {
+    flipCard.addEventListener('click', function (event) {
+      event.preventDefault()
 
-    // When the button is clicked, call the roll function
-    document.querySelector(".fortune-button").addEventListener("click", function (event) {
-        event.preventDefault();
-        // Roll for the fortune
-        const fortune = roll(fortunes_list);
+      // Roll for the fortune
+      const fortune = roll(fortunesList)
+      const player = new Player(loadPlayer())
+      player.add_fortune(fortune)
+      localStorage.setItem('player', JSON.stringify(player.player_obj))
 
-        let player = new Player(load_player());
-        player.add_fortune(fortune);
-        localStorage.setItem('player', JSON.stringify(player.player_obj));
+      const fortuneTitleElement = flipCard.querySelector('.fortune-title')
+      const fortuneDescriptionElement = flipCard.querySelector('.fortune-description')
+      const fortuneEffectsElement = flipCard.querySelector('.fortune-effects')
 
-        document.querySelector(".fortune-description").innerHTML = fortune["description"];
-        document.querySelector(".fortune-title").innerHTML = fortune["title"];
-        document.querySelector(".fortune-effects").innerHTML =
-            "<br>Effects: <br>" +
-            "Rest: " + fortune["effects"]["rest"] + "<br>" +
-            "Happiness: " + fortune["effects"]["happiness"] + "<br>" +
-            "<br>Skills: <br>" +
-            "   Test Taking: " + fortune["effects"]["skills"]["test_taking"] + "<br>" +
-            "   Coding: " + fortune["effects"]["skills"]["coding"] + "<br>" +
-            "   Thinking: " + fortune["effects"]["skills"]["thinking"] + "<br>";
+      // Update the fortune content on the back side of the flip card
+      fortuneTitleElement.textContent = fortune.title
+      fortuneDescriptionElement.textContent = fortune.description
+      fortuneEffectsElement.innerHTML =
+                '<br>Effects: <br>' +
+                'Rest: ' + fortune.effects.rest + '<br>' +
+                'Happiness: ' + fortune.effects.happiness + '<br>' +
+                '<br>Skills: <br>' +
+                '   Test Taking: ' + fortune.effects.skills.test_taking + '<br>' +
+                '   Coding: ' + fortune.effects.skills.coding + '<br>' +
+                '   Thinking: ' + fortune.effects.skills.thinking + '<br>'
 
-        document.querySelector(".encounter-button").style.display = 'block';
-        document.querySelector(".fortune-button").style.display = 'none';
+      // Flip the card to show the back side
+      flipCard.querySelector('.flip-card-inner').style.transform = 'rotateY(180deg)'
 
-    });
-
-});
+      // Hide the flip card and display the encounter button
+      document.querySelector('.encounter-button').style.display = 'block'
+    })
+  })
+})
 
 // Only export the functions if we are running in a Node.js environment (i.e. running tests)
 if (typeof module === 'object') {
-    module.exports = { load, roll, add };
+  module.exports = { load, roll, add }
 }

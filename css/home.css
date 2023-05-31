@@ -23,8 +23,7 @@ h2 {
 
 /* Background color for home page */
 body {
-    background-image: url("/assets/pictures/WelcomeBackground.png");
-    background-size: cover;
+  background-image: url("../assets/pictures/Tile_37.png");
 }
   
   .credits-button, .start-button, .help-button {

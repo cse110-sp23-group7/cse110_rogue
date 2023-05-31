@@ -10,18 +10,13 @@ h1 {
     font-size: 48px;
     text-align: center;
     margin: 50px 0;
-    
 }
 
 body{
     text-align: center;
     align-items: center;
     color:white;
-}
-
-body {
-    background-image: url("/assets/pictures/fortune-table.png");
-    background-size: cover;
+    background-image: url("../assets/pictures/fortune_backround.png");
 }
 
 /* Background color for home page */
@@ -34,42 +29,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.container {
-    position: relative;
-    width: 50%;
-  }
-  
-  /* Make the image responsive */
-  .container img {
-    width: 100%;
-    height: auto;
-  }
-  
-  /* Style the button and place it in the middle of the container/image */
-  .container .btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #555;
-    color: white;
-    font-size: 16px;
-    padding: 12px 24px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .container .btn:hover {
-    background-color: black;
-  }
-
-/* Style for fortune button */
-.fortune-button {
-    background-color: lightslategray;
 }
 
 /* Style for encounter button */
@@ -108,11 +67,6 @@ body {
     transform-style: preserve-3d;
   }
   
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
   /* Position the front and back side */
   .flip-card-front, .flip-card-back {
     position: absolute;
@@ -135,4 +89,18 @@ body {
     transform: rotateY(180deg);
   }
 
-  
+  .fortune-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 10rem;
+}
