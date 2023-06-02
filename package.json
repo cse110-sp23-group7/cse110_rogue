@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "jest",
-    "docs": "jsdoc -c cfg/jsdoc.conf.json"
+    "docs": "jsdoc -c cfg/jsdoc.conf.json",
+    "wdio": "wdio run ./wdio.conf.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,6 @@
   },
   "homepage": "https://github.com/cse110-sp23-group7/cse110_rogue/#README.md",
   "dependencies": {
-    "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "jsdoc": "^4.0.2",
     "minami": "^1.2.3",
@@ -29,16 +29,22 @@
   },
   "keywords": [],
   "devDependencies": {
-    "eslint": "^8.41.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsonc": "^2.8.0",
-    "eslint-plugin-n": "^15.7.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "htmlhint": "^1.1.4",
-    "stylelint": "^15.6.2",
-    "stylelint-config-standard": "^33.0.0",
-    "typescript": "^5.0.4"
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/register": "^7.21.0",
+    "@wdio/browser-runner": "^8.10.5",
+    "@wdio/cli": "^8.10.5",
+    "@wdio/mocha-framework": "^8.10.4",
+    "@wdio/spec-reporter": "^8.10.5",
+    "babel-jest": "^27.3.1",
+    "chromedriver": "^113.0.0",
+    "jest": "^27.3.1",
+    "jest-puppeteer": "^6.0.0",
+    "puppeteer": "^11.0.0",
+    "wdio-chromedriver-service": "^8.1.1"
+  },
+  "jest": {
+    "preset": "jest-puppeteer",
+    "verbose": true
   }
 }
