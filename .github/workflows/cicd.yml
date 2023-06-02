@@ -33,17 +33,6 @@ jobs:
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_CSS: true
           VALIDATE_HTML: true
-  code-quality:
-    name: Code Climate Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Codeclimate Coverage
-        uses: paambaati/codeclimate-action@v4.0.0
-        env:
-          CC_TEST_REPORTER_ID: ee5132235c5b90cdfc171842e359eb6c9e337500a05502b30c3462f619b3eec6
-        with:
-          debug: true
   testing:
     name: Test Code
     runs-on: ubuntu-latest
