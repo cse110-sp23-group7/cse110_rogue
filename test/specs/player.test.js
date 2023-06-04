@@ -1,9 +1,11 @@
-const Player = require('../js/player.js');
+const Player = require('../../js/player.js');
 
 describe('Player', () => {
   let player;
 
   beforeEach(() => {
+    browser.init();
+    
     const playerJson = {
       applied_fortunes: [],
       effects: {
