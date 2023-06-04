@@ -19,11 +19,6 @@ body{
     background-image: url("../assets/pictures/fortune_backround.png");
 }
 
-/* Background color for home page */
-body {
-    background-color: rgb(227, 158, 236);
-}
-
 /* Style for button container */
 .button-container {
     display: flex;
@@ -72,8 +67,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
+    backface-visibility: hidden; /* Safari */
   }
   
   /* Style the front side (fallback if image is missing) */
@@ -84,12 +78,15 @@ body {
   
   /* Style the back side */
   .flip-card-back {
-    background-color: dodgerblue;
+    background-color: black;
     color: white;
     transform: rotateY(180deg);
+    background-image: url("../assets/pictures/main_border.png");
+    background-size: cover;
   }
 
   .fortune-content {
+    padding:1rem;
     display: flex;
     flex-direction: column;
     align-items: center;

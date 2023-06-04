@@ -16,7 +16,7 @@
 
 #text-box {
     position: relative;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgb(0 0 0 / 80%);
     padding: 10px;
     border-radius: 5px;
     width: 800px;

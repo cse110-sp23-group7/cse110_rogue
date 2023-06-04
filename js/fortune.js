@@ -98,6 +98,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
       // Roll for the fortune
       const fortune = roll(fortunesList)
+      // eslint-disable-next-line no-undef
       const player = new Player(loadPlayer())
       player.add_fortune(fortune)
       localStorage.setItem('player', JSON.stringify(player.player_obj))
@@ -123,6 +124,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
       // Hide the flip card and display the encounter button
       document.querySelector('.encounter-button').style.display = 'block'
+
+      // Disable clicking on all flip cards
+      flipCards.forEach(card => {
+        card.style.pointerEvents = 'none'
+      })
     })
   })
 })
