@@ -44,12 +44,19 @@ jobs:
       - name: Install
         run: npm install
       - name: Test
-        run: npm run test:local
+        run: npx wdio wdio.conf.js
       - uses: actions/upload-artifact@v1
         if: failure()
         with:
           name: logs
           path: logs
+      - name: Commit logs
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: github-actions[bot]
+          author_email: github-actions[bot]@users.noreply.github.com
+          message: 'WebDriver Test Logs'
+          add: 'logs/*'
   docs:
     name: Documentation Generation
     runs-on: ubuntu-latest
