@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>player.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Player.html">Player</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#add_effect">add_effect</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#add_fortune">add_fortune</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#add_statistic">add_statistic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#to_json">to_json</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#load">load</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#loadPlayer">loadPlayer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#load_default_player">load_default_player</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#roll">roll</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">player.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>class Player {
+
+
+    /**
+     * Creates a new player instance from json object
+     * 
+     * @param {Object} player_json - json object representing player
+     */
+    constructor(player_json) {
+        this.player_obj = player_json;
+    }
+
+    /**
+     * Adds two numbers together, and makes sure that the maximum is 100, and minimum is 0
+     * 
+     * @param {int} a - first number
+     * @param {int} b - second number
+     * @returns {int} - result of adding a and b
+     */
+    add_statistic(a, b) {
+        let c = a + b;
+        if (c &lt;= 100 &amp;&amp; c >= 0) {
+            return c;
+        }
+        if (c &lt; 0) {
+            return 0;
+        }
+        return 100;
+    }
+
+    /**
+     * Applies the effects of a fortune/encounter to the player statistics
+     * 
+     * @param {Object} effect - json object representing effect being applied
+     */
+    add_effect(effect) {
+        console.log(this.player_obj);
+        this.player_obj.effects.rest = this.add_statistic(this.player_obj.effects.rest, effect["effects"]["rest"]);
+        this.player_obj.effects.happiness = this.add_statistic(this.player_obj.effects.happiness, effect["effects"]["happiness"]);
+        this.player_obj.effects.skills.test_taking = this.add_statistic(this.player_obj.effects.skills.test_taking, effect["effects"]["skills"]["test_taking"]);
+        this.player_obj.effects.skills.coding = this.add_statistic(this.player_obj.effects.skills.coding, effect["effects"]["skills"]["coding"]);
+        this.player_obj.effects.skills.thinking = this.add_statistic(this.player_obj.effects.skills.thinking, effect["effects"]["skills"]["thinking"]);
+    }
+
+    /**
+     * Applies the effects of a fortune to the player statistics
+     * Adds the fortnue name to the applied_fortunes array
+     * 
+     * @param {Object} fortune - json object representing fortune being applied
+     */
+    add_fortune(fortune) {
+        this.add_effect(fortune);
+        this.player_obj.applied_fortunes.push(fortune["title"]);
+    }
+
+    /**
+     * Turns the current player object into a json object
+     * Each player has the following properties:
+     * ```json
+     * {
+     *     "applied_fortunes": ["fortune1", "fortune2"],
+     *     "effects": {
+     *         "rest": &lt;Integer>,
+     *         "happiness": &lt;Integer>,
+     *         "skills": {
+     *             "test_taking": &lt;Integer>,
+     *             "coding": &lt;Integer>,
+     *             "thinking": &lt;Integer>
+     *         }
+     *     }
+     * }
+     * ```
+     * 
+     * @returns {Object} - json object representing the player
+     */
+    to_json() {
+        JSON.stringify(this);
+    }
+}
+
+module.exports = Player;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Mon Jun 05 2023 06:25:32 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
