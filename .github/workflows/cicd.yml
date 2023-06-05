@@ -69,3 +69,4 @@ jobs:
           author_email: github-actions[bot]@users.noreply.github.com
           message: 'Generated Docs'
           add: 'specs/docs/*'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
