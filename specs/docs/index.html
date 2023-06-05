@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#load">load</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#roll">roll</a></span></li>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article><p><a href="https://github.com/cse110-sp23-group7/cse110_rogue/actions/workflows/cicd.yml"><img src="https://github.com/cse110-sp23-group7/cse110_rogue/actions/workflows/cicd.yml/badge.svg" alt="CI Pipeline Badge"></a>
+<a href="https://codeclimate.com/github/cse110-sp23-group7/cse110_rogue/maintainability"><img src="https://api.codeclimate.com/v1/badges/9ac5b25d8286395a9b45/maintainability" alt="Maintainability"></a>
+<a href="https://codeclimate.com/github/cse110-sp23-group7/cse110_rogue/test_coverage"><img src="https://api.codeclimate.com/v1/badges/9ac5b25d8286395a9b45/test_coverage" alt="Test Coverage"></a></p>
+<h1>Team 404: CSE110 Roguelike</h1>
+<h2>Setup</h2>
+<ol>
+<li>Install <code>Node.js</code> and <code>npm</code> (Node Package Manager):</li>
+</ol>
+<p><strong>Linux:</strong></p>
+<pre class="prettyprint source lang-bash"><code>sudo apt install nodejs npm
+</code></pre>
+<p><strong>MacOS:</strong></p>
+<pre class="prettyprint source lang-bash"><code>brew install node
+</code></pre>
+<p><strong>Windows:</strong></p>
+<pre class="prettyprint source lang-bash"><code>winget install -e --id OpenJS.NodeJS
+</code></pre>
+<ol start="2">
+<li>Clone the repository:</li>
+</ol>
+<pre class="prettyprint source lang-bash"><code>git clone https://github.com/cse110-sp23-group7/cse110_rogue.git
+</code></pre>
+<ol start="3">
+<li>Install dependencies:</li>
+</ol>
+<pre class="prettyprint source lang-bash"><code>npm install
+</code></pre>
+<blockquote>
+<p>Current dependencies are:</p>
+<ul>
+<li><code>jest</code> for unit testing</li>
+<li><code>jsdoc</code> for documentation generation</li>
+</ul>
+</blockquote>
+<h2>Usage</h2>
+<h3>Run unit tests:</h3>
+<pre class="prettyprint source lang-bash"><code>npm run test
+</code></pre>
+<h3>Generate documentation:</h3>
+<pre class="prettyprint source lang-bash"><code>npm run docs
+</code></pre>
+<blockquote>
+<p>Docs will be generated in the <code>docs</code> directory. and can be opened using a browser.
+These docs are generated using code comments, so be sure to <strong>comment your code!</strong></p>
+</blockquote>
+<h3>Launch website:</h3>
+<ul>
+<li>Open <code>index.html</code> in a browser. Note that <code>index.html</code> will
+automatically redirect the user to <code>home.html</code>.</li>
+</ul>
+<h2>Project Structure</h2>
+<pre class="prettyprint source"><code>cse110_rogue/
+|-- index.html          # Start page, automatically redirects to home.html
+|-- css/
+|   |-- styles.css      # Main stylesheet, applied across all pages
+|   |-- fortune.css     # Stylesheet for fortune.html
+|   |-- home.css        # Stylesheet for home.html
+|   |-- encounter.css   # Stylesheet for encounter.html
+|-- js/
+|   |-- home.js         # Script for home.html
+|   |-- fortune.js      # Script for fortune.html
+|   |-- encounter.js    # Script for encounter.html
+|-- html/
+|   |-- home.html       # Home page
+|   |-- fortune.html    # Fortune page
+|   |-- encounter.html  # Encounter page
+|-- assets/             # Images and other assets
+|   |-- buttons/        # Buttons used across all pages
+|   |-- sprites/        # Sprites used across all pages
+|-- tests/              # Unit tests, powered by Jest
+|   |-- fortune.test.js
+|-- package.json        # Project metadata. Use npm to install dependencies
+</code></pre></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Mon Jun 05 2023 06:08:56 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

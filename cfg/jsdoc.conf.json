@@ -21,7 +21,7 @@
   "opts": {
     "template": "node_modules/minami",
     "recurse": true,
-    "destination": "./docs/"
+    "destination": "./specs/docs/"
   }
 }
 

@@ -44,22 +44,35 @@ jobs:
       - name: Install
         run: npm install
       - name: Test
-        run: npm run test:local
+        run: npx wdio wdio.conf.js
       - uses: actions/upload-artifact@v1
         if: failure()
         with:
           name: logs
           path: logs
+      - name: Commit logs
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: github-actions[bot]
+          author_email: github-actions[bot]@users.noreply.github.com
+          message: 'WebDriver Test Logs'
+          add: 'logs/*'
   docs:
     name: Documentation Generation
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: JSDoc Generation
-        uses: andstor/jsdoc-action@v1.2.1
+      - uses: actions/setup-node@v1
         with:
-          source_dir: ./js
-          recurse: true
-          output_dir: ./specs/docs
-          template: docdash
-          front_page: README.md
+          node-version: 18
+      - name: Install
+        run: npm install
+      - name: Generate Docs
+        run: npm run docs
+      - name: Commit JSDocs
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: github-actions[bot]
+          author_email: github-actions[bot]@users.noreply.github.com
+          message: 'Generated Docs'
+          add: 'specs/docs/*'
