@@ -62,7 +62,7 @@ jobs:
         run: npm install
       - name: Generate Docs
         run: npm run docs
-      - name: Commit JSDocs
+      - name: Commit JsDocs
         uses: EndBug/add-and-commit@v9
         with:
           author_name: github-actions[bot]
