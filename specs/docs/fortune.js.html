@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#load">load</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#roll">roll</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Player.html">Player</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#add_effect">add_effect</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#add_fortune">add_fortune</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#add_statistic">add_statistic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#to_json">to_json</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#load">load</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#loadPlayer">loadPlayer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#load_default_player">load_default_player</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#roll">roll</a></span></li>
 </nav>
 
 <div id="main">
@@ -39,25 +39,35 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>
-/**
+            <pre class="prettyprint source linenums"><code>/**
  * Load the fortunes from the JSON file
  * **This function is asynchronous.** It returns a Promise object that will resolve to an array of fortunes.
  *
  * @param {string} url - The URL of the JSON file
  * @returns {Promise&lt;Array>} - An array containing Fortune objects.
  */
-function load(url) {
+function load (url) {
+  return fetch(url) // Fetch the JSON file using the fetch function
+    .then(response => response.json()) // Convert the response to a JSON object
+    .then(data => {
+      return data.fortunes // Return the list of fortunes
+    })
+    .catch(error => {
+      console.error(error) // Log any errors to the console
+      return []
+    })
+}
 
-    return fetch(url)                                        // Fetch the JSON file using the fetch function
-        .then(response => response.json())         // Convert the response to a JSON object
-        .then(data => {
-            return data.fortunes;                           // Return the list of fortunes
-        })
-        .catch(error => {
-            console.error(error)                            // Log any errors to the console
-            return [];
-        });
+/**
+ * Loads player object from localStorage
+ *
+ * @returns {Object} - An JSON object representing the player
+ */
+function loadPlayer () {
+  const player = JSON.parse(localStorage.getItem('player'))
+  if (player != null) {
+    return player
+  }
 }
 
 /**
@@ -87,16 +97,15 @@ function load(url) {
  * @param {Array} array - An array of fortune objects
  * @returns {Object} - A random fortune object
  */
-function roll(array) {
+function roll (array) {
+  if (array.length === 0) {
+    console.error('Array is empty')
+    return null
+  }
 
-    if (array.length === 0) {
-        console.error("Array is empty");
-        return null;
-    }
-
-    const index = Math.floor(Math.random() * array.length);
-    console.log("Rolled " + index + ": " + array[index]["title"]);
-    return array[index];
+  const index = Math.floor(Math.random() * array.length)
+  console.log('Rolled ' + index + ': ' + array[index].title)
+  return array[index]
 }
 
 /**
@@ -106,44 +115,68 @@ function roll(array) {
  * @param b {int} Second number
  * @returns {int} The sum of the two numbers
  */
-function add(a, b){
-    return a + b;
+function add (a, b) {
+  return a + b
 }
+window.addEventListener('DOMContentLoaded', () => {
+  let fortunesList = []
 
-window.addEventListener("DOMContentLoaded", () => {
+  document.querySelector('.encounter-button').style.display = 'none'
 
-    let fortunes_list = [];
+  // When the page loads, call the load function
+  load('../json/fortunes.json').then(fortunes => {
+    console.log('Loaded ' + fortunes.length + ' fortunes')
+    console.log(fortunes)
+    fortunesList = fortunes
+  })
 
-    // When the page loads, call the load function
-    load("../json/fortunes.json").then(fortunes => {
-        console.log("Loaded " + fortunes.length + " fortunes");
-        console.log(fortunes);
-        fortunes_list = fortunes;
-    });
+  const flipCards = document.querySelectorAll('.flip-card')
 
-    // When the button is clicked, call the roll function
-    document.querySelector(".fortune-button").addEventListener("click", function(event) {
-        event.preventDefault();
-        // Roll for the fortune
-        const fortune = roll(fortunes_list);
+  // When the flip card is clicked, call the roll function
+  flipCards.forEach(flipCard => {
+    flipCard.addEventListener('click', function (event) {
+      event.preventDefault()
 
-        document.querySelector(".fortune-description").innerHTML = fortune["description"];
-        document.querySelector(".fortune-title").innerHTML = fortune["title"];
-        document.querySelector(".fortune-effects").innerHTML =
-            "&lt;br>Effects: &lt;br>" +
-            "Rest: " + fortune["effects"]["rest"] + "&lt;br>" +
-            "Happiness: " + fortune["effects"]["happiness"] + "&lt;br>" +
-            "&lt;br>Skills: &lt;br>" +
-            "   Test Taking: " + fortune["effects"]["skills"]["test_taking"] + "&lt;br>" +
-            "   Coding: " + fortune["effects"]["skills"]["coding"] + "&lt;br>" +
-            "   Thinking: " + fortune["effects"]["skills"]["thinking"] + "&lt;br>";
+      // Roll for the fortune
+      const fortune = roll(fortunesList)
+      // eslint-disable-next-line no-undef
+      const player = new Player(loadPlayer())
+      player.add_fortune(fortune)
+      localStorage.setItem('player', JSON.stringify(player.player_obj))
 
-    });
-});
+      const fortuneTitleElement = flipCard.querySelector('.fortune-title')
+      const fortuneDescriptionElement = flipCard.querySelector('.fortune-description')
+      const fortuneEffectsElement = flipCard.querySelector('.fortune-effects')
+
+      // Update the fortune content on the back side of the flip card
+      fortuneTitleElement.textContent = fortune.title
+      fortuneDescriptionElement.textContent = fortune.description
+      fortuneEffectsElement.innerHTML =
+                '&lt;br>Effects: &lt;br>' +
+                'Rest: ' + fortune.effects.rest + '&lt;br>' +
+                'Happiness: ' + fortune.effects.happiness + '&lt;br>' +
+                '&lt;br>Skills: &lt;br>' +
+                '   Test Taking: ' + fortune.effects.skills.test_taking + '&lt;br>' +
+                '   Coding: ' + fortune.effects.skills.coding + '&lt;br>' +
+                '   Thinking: ' + fortune.effects.skills.thinking + '&lt;br>'
+
+      // Flip the card to show the back side
+      flipCard.querySelector('.flip-card-inner').style.transform = 'rotateY(180deg)'
+
+      // Hide the flip card and display the encounter button
+      document.querySelector('.encounter-button').style.display = 'block'
+
+      // Disable clicking on all flip cards
+      flipCards.forEach(card => {
+        card.style.pointerEvents = 'none'
+      })
+    })
+  })
+})
 
 // Only export the functions if we are running in a Node.js environment (i.e. running tests)
 if (typeof module === 'object') {
-    module.exports = {load, roll, add};
+  module.exports = { load, roll, add }
 }</code></pre>
         </article>
     </section>
@@ -156,7 +189,7 @@ if (typeof module === 'object') {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Mon Jun 05 2023 06:08:56 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Mon Jun 05 2023 06:26:45 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
