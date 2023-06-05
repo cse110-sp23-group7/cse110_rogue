@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "jest",
+    "test": "npx wdio run wdio.conf.js",
     "docs": "jsdoc -c cfg/jsdoc.conf.json",
     "wdio": "wdio run ./wdio.conf.js"
   },
