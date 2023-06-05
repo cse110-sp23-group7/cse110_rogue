@@ -55,11 +55,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: JSDoc Generation
-        uses: andstor/jsdoc-action@v1.2.1
+      - uses: actions/setup-node@v1
         with:
-          source_dir: ./js
-          recurse: true
-          output_dir: ./specs/docs
-          template: docdash
-          front_page: README.md
+          node-version: 18
+      - name: Install
+        run: npm install
+      - name: Generate Docs
+        run: npm run docs
