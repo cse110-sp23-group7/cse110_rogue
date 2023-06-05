@@ -62,10 +62,10 @@ jobs:
         run: npm install
       - name: Generate Docs
         run: npm run docs
-      - name: Commit JSDOCS
+      - name: Commit JSDocs
         uses: EndBug/add-and-commit@v9
         with:
-          author_name: GitHub Actions
-          author_email: noreply@github.com
+          author_name: Raj Sunku
+          author_email: rsunku@ucsd.edu
           message: 'Generated Docs'
           add: 'specs/docs/*'
