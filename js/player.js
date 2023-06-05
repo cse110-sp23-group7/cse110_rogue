@@ -77,3 +77,5 @@ class Player {
         JSON.stringify(this);
     }
 }
+
+module.exports = Player;
