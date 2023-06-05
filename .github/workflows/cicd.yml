@@ -2,9 +2,9 @@ name: CI/CD Full Pipeline
 
 on:
   push:
-    branches: ["main", "pipeline", "development"]
+    branches: ["main"]
   pull_request:
-    branches: ["main", "pipeline", "development"]
+    branches: ["main"]
 
   workflow_dispatch:
 
@@ -41,7 +41,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 18
-      - name: Install
+      - name: Install Dependencies
         run: npm install
       - name: Test
         run: npx wdio wdio.conf.js
@@ -58,6 +58,7 @@ jobs:
           message: 'WebDriver Test Logs'
           add: 'logs/*'
   docs:
+    needs: [testing, lint, build]
     name: Documentation Generation
     runs-on: ubuntu-latest
     steps:
