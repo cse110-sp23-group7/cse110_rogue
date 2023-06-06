@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Global - Documentation</title>
+    <title>Player - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Global</h1>
+    <h1 class="page-title">Player</h1>
     
 
     
@@ -42,7 +42,7 @@
 <header>
     
         <h2>
-        
+        Player
         </h2>
         
     
@@ -52,81 +52,20 @@
     <div class="container-overview">
     
         
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
 <div class="section-method">
 
     
 
-    <h4 class="name" id="add"><span class="type-signature"></span>add<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {int}</span></h4>
+    <h4 class="name" id="Player"><span class="type-signature"></span>new Player<span class="signature">(player_json)</span><span class="type-signature"></span></h4>
 
     
-    <p class="summary">Add two numbers together.</p>
+    <p class="summary"><p>Creates a new player instance from json object</p>.</p>
     
 
 
 
 <div class="description">
-    <p>Add two numbers together. This is a simple function to demonstrate unit testing.</p>
+    <p>Creates a new player instance from json object</p>
 </div>
 
 
@@ -162,7 +101,438 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fortune.js.html">fortune.js</a>, <a href="fortune.js.html#line77">line 77</a>
+        <a href="player.js.html">player.js</a>, <a href="player.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>player_json</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>json object representing player</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="add_effect"><span class="type-signature"></span>add_effect<span class="signature">(effect)</span><span class="type-signature"></span></h4>
+
+    
+    <p class="summary"><p>Applies the effects of a fortune/encounter to the player statistics</p>.</p>
+    
+
+
+
+<div class="description">
+    <p>Applies the effects of a fortune/encounter to the player statistics</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="player.js.html">player.js</a>, <a href="player.js.html#line36">line 36</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>effect</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>json object representing effect being applied</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="add_fortune"><span class="type-signature"></span>add_fortune<span class="signature">(fortune)</span><span class="type-signature"></span></h4>
+
+    
+    <p class="summary"><p>Applies the effects of a fortune to the player statistics
+Adds the fortnue name to the applied_fortunes array</p>.</p>
+    
+
+
+
+<div class="description">
+    <p>Applies the effects of a fortune to the player statistics
+Adds the fortnue name to the applied_fortunes array</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="player.js.html">player.js</a>, <a href="player.js.html#line51">line 51</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fortune</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>json object representing fortune being applied</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="add_statistic"><span class="type-signature"></span>add_statistic<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {int}</span></h4>
+
+    
+    <p class="summary"><p>Adds two numbers together, and makes sure that the maximum is 100, and minimum is 0</p>.</p>
+    
+
+
+
+<div class="description">
+    <p>Adds two numbers together, and makes sure that the maximum is 100, and minimum is 0</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="player.js.html">player.js</a>, <a href="player.js.html#line20">line 20</a>
     </li></ul></dd>
     
 
@@ -223,7 +593,7 @@
             
 
             <td class="description last">
-                <p>First number</p>
+                <p>first number</p>
                 
             </td>
         </tr>
@@ -249,7 +619,7 @@
             
 
             <td class="description last">
-                <p>Second number</p>
+                <p>second number</p>
                 
             </td>
         </tr>
@@ -290,172 +660,8 @@
 
 
 <div class="param-desc">
-    <p>The sum of the two numbers</p>
-</div>
-
-    
-</div>
-
-
-
-</div>
-        
-            
-<div class="section-method">
-
-    
-
-    <h4 class="name" id="load"><span class="type-signature"></span>load<span class="signature">(url)</span><span class="type-signature"> &rarr; {Promise.&lt;Array>}</span></h4>
-
-    
-    <p class="summary"><p>Load the fortunes from the JSON file
-<strong>This function is asynchronous.</strong></p></p>
-    
-
-
-
-<div class="description">
-    <p>Load the fortunes from the JSON file
-<strong>This function is asynchronous.</strong> It returns a Promise object that will resolve to an array of fortunes.</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fortune.js.html">fortune.js</a>, <a href="fortune.js.html#line8">line 8</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>url</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <p>The URL of the JSON file</p>
-                
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>Promise.&lt;Array></code></span>
-
-
-    </dd>
-</dl>
-
-
-<div class="param-desc">
     <ul>
-<li>An array containing Fortune objects.</li>
+<li>result of adding a and b</li>
 </ul>
 </div>
 
@@ -471,311 +677,44 @@
 
     
 
-    <h4 class="name" id="loadPlayer"><span class="type-signature"></span>loadPlayer<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="to_json"><span class="type-signature"></span>to_json<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
 
     
-    <p class="summary"><p>Loads player object from localStorage</p>.</p>
-    
-
-
-
-<div class="description">
-    <p>Loads player object from localStorage</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fortune.js.html">fortune.js</a>, <a href="fortune.js.html#line25">line 25</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>Object</code></span>
-
-
-    </dd>
-</dl>
-
-
-<div class="param-desc">
-    <ul>
-<li>An JSON object representing the player</li>
-</ul>
-</div>
-
-    
-</div>
-
-
-
-</div>
-        
-            
-<div class="section-method">
-
-    
-
-    <h4 class="name" id="load_default_player"><span class="type-signature"></span>load_default_player<span class="signature">(url)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
-
-    
-    <p class="summary"><p>Load the player from the JSON file
-<strong>This function is asynchronous.</strong></p></p>
-    
-
-
-
-<div class="description">
-    <p>Load the player from the JSON file
-<strong>This function is asynchronous.</strong> It returns a Promise object that will resolve to an array of fortunes.</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="home.js.html">home.js</a>, <a href="home.js.html#line8">line 8</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>url</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <p>URL of the player json file</p>
-                
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>Promise.&lt;Object></code></span>
-
-
-    </dd>
-</dl>
-
-
-<div class="param-desc">
-    <ul>
-<li>the json object representing the default player</li>
-</ul>
-</div>
-
-    
-</div>
-
-
-
-</div>
-        
-            
-<div class="section-method">
-
-    
-
-    <h4 class="name" id="roll"><span class="type-signature"></span>roll<span class="signature">(array)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-
-    
-    <p class="summary">Get a random fortune from the array of fortunes.</p>
-    
-
-
-
-<div class="description">
-    <p>Get a random fortune from the array of fortunes.
-Each fortune has the following properties:</p>
+    <p class="summary"><p>Turns the current player object into a json object
+Each player has the following properties:</p>
 <pre class="prettyprint source lang-json"><code>{
-  &quot;title&quot;: &quot;Title&quot;,
-  &quot;description&quot;: &quot;Sample description&quot;,
-  &quot;effects&quot;: {
-    &quot;rest&quot;: &lt;Integer>,
-    &quot;happiness&quot;: &lt;Integer>
-    &quot;skills&quot;: {
-      &quot;test_taking&quot;: &lt;Integer>,
-      &quot;coding&quot;: &lt;Integer>,
-      &quot;thinking&quot;: &lt;Integer>
-     }
-  }
+    &quot;applied_fortunes&quot;: [&quot;fortune1&quot;, &quot;fortune2&quot;],
+    &quot;effects&quot;: {
+        &quot;rest&quot;: &lt;Integer>,
+        &quot;happiness&quot;: &lt;Integer>,
+        &quot;skills&quot;: {
+            &quot;test_taking&quot;: &lt;Integer>,
+            &quot;coding&quot;: &lt;Integer>,
+            &quot;thinking&quot;: &lt;Integer>
+        }
+    }
+}
+</code></pre>.</p>
+    
+
+
+
+<div class="description">
+    <p>Turns the current player object into a json object
+Each player has the following properties:</p>
+<pre class="prettyprint source lang-json"><code>{
+    &quot;applied_fortunes&quot;: [&quot;fortune1&quot;, &quot;fortune2&quot;],
+    &quot;effects&quot;: {
+        &quot;rest&quot;: &lt;Integer>,
+        &quot;happiness&quot;: &lt;Integer>,
+        &quot;skills&quot;: {
+            &quot;test_taking&quot;: &lt;Integer>,
+            &quot;coding&quot;: &lt;Integer>,
+            &quot;thinking&quot;: &lt;Integer>
+        }
+    }
 }
 </code></pre>
-<p>Each integer is a value between -100 and 100 inclusive, and reflects the stat changes to the user.
-For example, a fortune with a rest value of 10 will increase the user's rest by 10.</p>
 </div>
 
 
@@ -811,19 +750,12 @@ For example, a fortune with a rest value of 10 will increase the user's rest by 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fortune.js.html">fortune.js</a>, <a href="fortune.js.html#line59">line 59</a>
+        <a href="player.js.html">player.js</a>, <a href="player.js.html#line76">line 76</a>
     </li></ul></dd>
     
 
     
 
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random</a></li>
-        </ul>
-    </dd>
     
 
     
@@ -835,58 +767,6 @@ For example, a fortune with a rest value of 10 will increase the user's rest by 
 
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>array</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>Array</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <p>An array of fortune objects</p>
-                
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -921,7 +801,7 @@ For example, a fortune with a rest value of 10 will increase the user's rest by 
 
 <div class="param-desc">
     <ul>
-<li>A random fortune object</li>
+<li>json object representing the player</li>
 </ul>
 </div>
 
