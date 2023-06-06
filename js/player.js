@@ -74,7 +74,7 @@ class Player {
      * @returns {Object} - json object representing the player
      */
     to_json() {
-        JSON.stringify(this);
+        return JSON.stringify(this);
     }
 }
 

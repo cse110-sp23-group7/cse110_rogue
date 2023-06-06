@@ -4,8 +4,6 @@ describe('Player', () => {
   let player;
 
   beforeEach(() => {
-    browser.init();
-    
     const playerJson = {
       applied_fortunes: [],
       effects: {
@@ -22,21 +20,21 @@ describe('Player', () => {
   });
 
   describe('add_statistic', () => {
-    test('should add two numbers together', () => {
+    it('should add two numbers together', () => {
       expect(player.add_statistic(10, 20)).toBe(30);
     });
 
-    test('should limit the result to a maximum of 100', () => {
+    it('should limit the result to a maximum of 100', () => {
       expect(player.add_statistic(90, 30)).toBe(100);
     });
 
-    test('should limit the result to a minimum of 0', () => {
+    it('should limit the result to a minimum of 0', () => {
       expect(player.add_statistic(10, -20)).toBe(0);
     });
   });
 
   describe('add_effect', () => {
-    test('should apply the effects of an effect to player statistics', () => {
+    it('should apply the effects of an effect to player statistics', () => {
       const effect = {
         effects: {
           rest: -10,
@@ -60,7 +58,7 @@ describe('Player', () => {
   });
 
   describe('add_fortune', () => {
-    test('should apply the effects of a fortune to player statistics', () => {
+    it('should apply the effects of a fortune to player statistics', () => {
       const fortune = {
         title: 'Good Fortune',
         effects: {
@@ -86,11 +84,10 @@ describe('Player', () => {
     });
   });
 
-  // describe('to_json', () => {
-  //   test('should convert the player object to a JSON object', () => {
-  //     const playerJson = player.to_json();
-
-  //     expect(playerJson).toEqual(player.player_obj);
-  //   });
-  // });
+  describe('to_json', () => {
+    it('should convert the player object to a JSON object', () => {
+      const playerJson = JSON.parse(player.to_json());
+      expect(playerJson).toEqual(player);    
+    });
+  });
 });
