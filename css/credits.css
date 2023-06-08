@@ -1,6 +1,43 @@
-body {
-    background-image: url("/assets/pictures/credit-background.avif");
-    background-size: cover;
-    color: white;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+/* Style for page title */
+h1 {
+    padding-top: 75px;
+    font-size: 48px;
     text-align: center;
+    margin: 50px 0;
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
 }
+
+h2 {
+    margin: 30px;
+}
+
+/* Style for button container */
+.button-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Background color for home page */
+body {
+  background-image: url("../assets/pictures/Tile_37.png");
+  color:white;
+}
+  
+
+
+/* Style for contents */
+ul,ol {
+    font-size: 20px;
+    margin: 60px;
+}
+
+div {
+    font-size: 20px;
+    margin: 60px;
+}
+

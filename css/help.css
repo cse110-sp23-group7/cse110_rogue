@@ -1,12 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+/* Style for page title */
+h1 {
+    padding-top: 75px;
+    font-size: 48px;
+    text-align: center;
+    margin: 50px 0;
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+}
+
+h2 {
+    margin: 30px;
+}
+
+/* Style for button container */
+.button-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Background color for home page */
 body {
-    background-size: cover;
-    background-image: url("/assets/pictures/starry-background.jpg");
+  background-image: url("../assets/pictures/Tile_37.png");
+  color:white;
+}
+  
+
+
+/* Style for contents */
+ul,ol {
+    font-size: 20px;
+    margin: 60px;
 }
 
-h1{
-    text-align: center;
+div {
+    font-size: 20px;
+    margin: 60px;
 }
 
-h2{
-    text-align: center;
-}
