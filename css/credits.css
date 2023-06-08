@@ -1,0 +1,6 @@
+body {
+    background-image: url("/assets/pictures/credit-background.avif");
+    background-size: cover;
+    color: white;
+    text-align: center;
+}

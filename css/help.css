@@ -1,0 +1,12 @@
+body {
+    background-size: cover;
+    background-image: url("/assets/pictures/starry-background.jpg");
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
