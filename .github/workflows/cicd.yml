@@ -46,7 +46,7 @@ jobs:
       - name: Install Google Chrome 
         uses: browser-actions/setup-chrome@v1
         with:
-          chrome-version: latest
+          chrome-version: stable
       - name: Run Google Chrome 
         run: chrome --version
       - name: Test
