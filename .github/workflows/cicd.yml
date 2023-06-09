@@ -44,7 +44,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Test
-        run: npx wdio wdio.conf.js
+        run: npx wdio ./wdio.conf.js
       - uses: actions/upload-artifact@v1
         if: failure()
         with:
