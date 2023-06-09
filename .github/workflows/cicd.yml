@@ -45,6 +45,8 @@ jobs:
         run: npm install
       - name: Install Google Chrome 
         uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: latest
       - name: Run Google Chrome 
         run: chrome --version
       - name: Test
