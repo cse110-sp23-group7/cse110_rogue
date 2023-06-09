@@ -5,7 +5,7 @@
  * @param {string} url - URL of the player json file
  * @returns {Promise<Object>} - the json object representing the default player
  */
-function load_default_player (url) {
+function loadDefaultPlayer (url) {
   return fetch(url) // Fetch the JSON file using the fetch function
     .then(response => response.json()) // Convert the response to a JSON object
     .then(data => {
@@ -17,13 +17,13 @@ function load_default_player (url) {
     })
 }
 
-const start_button = document.querySelector('.start-button')
+const startButton = document.querySelector('.start-button')
 
-start_button.addEventListener('click', function () {
-  load_default_player('../json/player.json').then(player => {
+startButton.addEventListener('click', function () {
+  loadDefaultPlayer('../json/player.json').then(player => {
     console.log(player)
     localStorage.setItem('player', JSON.stringify(player))
   })
 })
 
-module.exports = { load_default_player }
+module.exports = { loadDefaultPlayer }
