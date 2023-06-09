@@ -44,9 +44,9 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Install Google Chrome 
-        run: | 
-                chmod +x ./scripts/InstallChrome.sh
-                  ./scripts/InstallChrome.sh
+        uses: browser-actions/setup-chrome@v1
+      - name: Run Google Chrome 
+        run: chrome --version
       - name: Test
         run: npx wdio ./wdio.conf.js
       - uses: actions/upload-artifact@v1
