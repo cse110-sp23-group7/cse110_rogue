@@ -1,21 +1,60 @@
 window.addEventListener('load', function () {
-  // Hide the options container
-  document.getElementById('options-container').style.display = 'none'
+  fetch('../json/encounters.json')
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (data) {
+      const randomIndex = Math.floor(Math.random() * data.encounters.length)
+      const encounter = data.encounters[randomIndex]
+
+      document.getElementById('text-content').textContent = encounter.text
+
+      document.getElementById('encounter-img').src = encounter.imagePath
+
+      const actionButtons = document.getElementsByClassName('option-button')
+      for (let i = 0; i < actionButtons.length; i++) {
+        actionButtons[i].textContent = encounter.actions[i].name
+      }
+
+      // Set events for each action button
+      for (let i = 0; i < actionButtons.length; i++) {
+        actionButtons[i].addEventListener('click', function () {
+          const index = Array.from(actionButtons).indexOf(this)
+          const statName = encounter.actions[index].statName
+          const minStat = encounter.actions[index].minStat
+          // eslint-disable-next-line no-undef
+          const playerObj = new Player(loadPlayer()).player_obj
+          const playerStats = playerObj.effects
+
+          console.log(playerObj)
+          if (playerStats[statName] > minStat) {
+            // Passed encounter
+            playerObj.expected_grade = parseInt(playerObj.expected_grade) + 5
+            document.getElementById('text-content').textContent = encounter.actions[i].positiveResult
+          } else {
+            // Failed encounter
+            playerObj.expected_grade = parseInt(playerObj.expected_grade) - 5
+            document.getElementById('text-content').textContent = encounter.actions[i].negativeResult
+          }
+          localStorage.setItem('player', JSON.stringify(playerObj))
+
+          console.log(`changed player expected grade to ${playerObj.expected_grade}`)
+        })
+      }
+    })
+    .catch(function (error) {
+      console.log('Error:', error)
+    })
 })
 
-// Add click event listener to the next button
-document.getElementById('next-button').addEventListener('click', function () {
-  // Hide the text container
-  document.getElementById('text-container').style.display = 'none'
-
-  // Show the options container
-  document.getElementById('options-container').style.display = 'block'
-})
-
-// Add click event listeners to the option buttons
-const optionButtons = document.getElementsByClassName('option-button')
-for (let i = 0; i < optionButtons.length; i++) {
-  optionButtons[i].addEventListener('click', function () {
-    window.location.href = '../html/fortune.html'
-  })
+/**
+ * Loads player object from localStorage
+ *
+ * @returns {Object} - An JSON object representing the player
+ */
+function loadPlayer () {
+  const player = JSON.parse(localStorage.getItem('player'))
+  if (player != null) {
+    return player
+  }
 }

@@ -1,0 +1,75 @@
+{
+    "encounters": [
+      {
+        "name": "Encounter 1",
+        "text": "This is encounter 1",
+        "actions": [
+          {
+            "name": "E1Action 1",
+            "statName": "rest",
+            "minStat": 10,
+            "positiveResult": "You passed the encounter!",
+            "negativeResult": "You failed the encounter!"
+          },
+          {
+            "name": "E1Action 2",
+            "statName": "rest",
+            "minStat": 5,
+            "positiveResult": "You passed the encounter!",
+            "negativeResult": "You failed the encounter!"
+          },
+          {
+            "name": "Action 3",
+            "statName": "rest",
+            "minStat": 15,
+            "positiveResult": "You passed the encounter!",
+            "negativeResult": "You failed the encounter!"
+          },
+          {
+            "name": "Action 4",
+            "statName": "rest",
+            "minStat": 20,
+            "positiveResult": "You passed the encounter!",
+            "negativeResult": "You failed the encounter!"
+          }
+        ],
+        "imagePath": "../assets/pictures/encounter1.png"
+      },
+      {
+        "name": "Midterm",
+        "text": "It's midterm time! Get your pencils ready and start writing until your hand falls off, GLHF!",
+        "actions": [
+          {
+            "name": "Rush Test",
+            "statName": "rest",
+            "minStat": 100,
+            "positiveResult": "You passed the encounter!",
+            "negativeResult": "You failed the encounter!"
+          },
+          {
+            "name": "Run",
+            "statName": "rest",
+            "minStat": 7,
+            "positiveResult": "You passed the encounter!",
+            "negativeResult": "You failed the encounter!"
+          },
+          {
+            "name": "Cheat",
+            "statName": "rest",
+            "minStat": 9,
+            "positiveResult": "You passed the encounter!",
+            "negativeResult": "You failed the encounter!"
+          },
+          {
+            "name": "Go slow",
+            "statName": "rest",
+            "minStat": 11,
+            "positiveResult": "You passed the encounter!",
+            "negativeResult": "You failed the encounter!"
+          }
+        ],
+        "imagePath": "../assets/pictures/book.png"
+      }
+    ]
+  }
+  

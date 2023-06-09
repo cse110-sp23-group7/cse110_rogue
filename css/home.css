@@ -24,69 +24,9 @@ h2 {
 
 /* Background color for home page */
 body {
-  background-image: url("../assets/pictures/Tile_37.png");
+    background-image: url("../assets/pictures/Tile_37.png");
 }
   
-  .credits-button, .start-button, .help-button {
-    font-size: 25px;
-    color: white;
-    height: auto;
-    margin: 10px;
-    font-family: 'VT323';
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-    text-transform: uppercase;
-    cursor: pointer;
-    -webkit-touch-callout: none;
-    user-select: none;
-    user-select: none;
-    user-select: none;
-    user-select: none;
-    user-select: none;
-  }
-  
-  .credits-button:active, .start-button:active, .help-button:active {
-    top: 2px;
-  }
-  
-  
-  
-  .start-button, .credits-button, .help-button {
-    position: relative;
-    display: block;
-    margin: 10px;
-    font-family: 'VT323';
-    text-transform: uppercase;
-    font-size: 25px;
-    color: white;
-  }
-  
-  .start-button::before, .credits-button::before, .help-button::before {
-    content: "";
-    display: block;
-    position: absolute;
-    inset: 10px -10px;
-    background: black;
-    z-index: -1;
-  }
-  
-  .start-button::after, .credits-button::after, .help-button::after {
-    content: "";
-    display: block;
-    position: absolute;
-    inset: 4px -6px;
-    background: black;
-    z-index: -1;
-  }
-  
-  .start-button, .credits-button, .help-button{
-    padding: 10px;
-    position: relative;
-    background: black;
-    width: auto;
-    z-index: 2;
-  }
 
 /* Style for contents */
 ul,ol {
@@ -97,14 +37,5 @@ ul,ol {
 div {
     font-size: 20px;
     margin: 60px;
-}
-
-/* Style for back button */
-.back-button {
-    background-image: url('../assets/buttons/button-blue.png');
-
-    /* position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%); */
 }
 
