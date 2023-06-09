@@ -52,7 +52,7 @@ class Player {
         this.add_effect(fortune);
         this.player_obj.applied_fortunes.push(fortune["title"]);
     }
-
+    
     /**
      * Turns the current player object into a json object
      * Each player has the following properties:

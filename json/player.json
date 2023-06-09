@@ -8,5 +8,6 @@
             "coding": 50,
             "thinking": 50
         }
-    }
+    },
+    "expected_grade": 85
 }
