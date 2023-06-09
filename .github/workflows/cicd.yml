@@ -36,8 +36,6 @@ jobs:
   testing:
     name: Test Code
     runs-on: ubuntu-latest
-    services:
-    - selenium/standalone-chrome
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v1
@@ -45,6 +43,10 @@ jobs:
           node-version: 18
       - name: Install Dependencies
         run: npm install
+      - name: Install Google Chrome 
+        run: | 
+                chmod +x ./scripts/InstallChrome.sh
+                  ./scripts/InstallChrome.sh
       - name: Test
         run: npx wdio ./wdio.conf.js
       - uses: actions/upload-artifact@v1
