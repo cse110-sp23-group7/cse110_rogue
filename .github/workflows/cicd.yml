@@ -36,6 +36,8 @@ jobs:
   testing:
     name: Test Code
     runs-on: ubuntu-latest
+    services:
+    - selenium/standalone-chrome
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v1
