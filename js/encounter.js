@@ -39,6 +39,10 @@ window.addEventListener('load', function () {
           localStorage.setItem('player', JSON.stringify(playerObj))
 
           console.log(`changed player expected grade to ${playerObj.expected_grade}`)
+
+          setTimeout(function () {
+            window.location.href = '../html/fortune.html'
+          }, 2000)
         })
       }
     })

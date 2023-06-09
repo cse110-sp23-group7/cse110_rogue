@@ -33,7 +33,7 @@
             "negativeResult": "You failed the encounter!"
           }
         ],
-        "imagePath": "../assets/pictures/encounter1.png"
+        "imagePath": "../assets/pictures/book.png"
       },
       {
         "name": "Midterm",
@@ -43,32 +43,32 @@
             "name": "Rush Test",
             "statName": "rest",
             "minStat": 100,
-            "positiveResult": "You passed the encounter!",
-            "negativeResult": "You failed the encounter!"
+            "positiveResult": "You passed the midterm!",
+            "negativeResult": "You failed the midterm because you rushed!"
           },
           {
             "name": "Run",
             "statName": "rest",
             "minStat": 7,
             "positiveResult": "You passed the encounter!",
-            "negativeResult": "You failed the encounter!"
+            "negativeResult": "You failed the encounter because Powell caught you!"
           },
           {
             "name": "Cheat",
             "statName": "rest",
             "minStat": 9,
             "positiveResult": "You passed the encounter!",
-            "negativeResult": "You failed the encounter!"
+            "negativeResult": "You failed the encounter because you were caught cheating!"
           },
           {
             "name": "Go slow",
             "statName": "rest",
             "minStat": 11,
             "positiveResult": "You passed the encounter!",
-            "negativeResult": "You failed the encounter!"
+            "negativeResult": "You failed the encounter because you were too slow!"
           }
         ],
-        "imagePath": "../assets/pictures/book.png"
+        "imagePath": "../assets/pictures/test-pixelated.png"
       }
     ]
   }
