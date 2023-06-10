@@ -1,9 +1,9 @@
-.container {
+.info-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end; /* Align container at the bottom */
-    height: 100vh;
+    height: 50vh;
 }
 
 #text-container {
@@ -11,7 +11,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 #text-box {
@@ -20,14 +20,16 @@
     padding: 10px;
     border-radius: 5px;
     width: 800px;
-    height: 100px;
+    height: 125px;
 }
 
 #text-content {
     color: white;
     margin: 0;
-    font-family: monospace;
-    font-size: 16px;
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+    font-family: 'VT323';
+    font-size: 20px;
+    width:600px;
 }
 
 #headshot-container {
@@ -54,11 +56,27 @@
 #options-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    width: 800px;
+    height: 50px;
+    margin: 2rem;
 }
 
 .option-button {
     margin: 10px;
     padding: 10px 20px;
-    width: 8rem;
+    width: 10rem;
+    height: 3rem;
+    font-size: 20px;
+}
+
+.encounter-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+body {
+    background-image: url("../assets/pictures/Tile_37.png");
 }

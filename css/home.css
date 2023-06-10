@@ -24,13 +24,9 @@ h2 {
 
 /* Background color for home page */
 body {
-  background-image: url("../assets/pictures/Tile_37.png");
+    background-image: url("../assets/pictures/Tile_37.png");
 }
   
-  
-  
-  
-
 
 /* Style for contents */
 ul,ol {

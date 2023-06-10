@@ -21,23 +21,14 @@ h2 {
     align-items: center;
 }
 
-
 /* Background color for home page */
 body {
-  background-image: url("../assets/pictures/Tile_37.png");
-  color:white;
+    background-image: url("../assets/pictures/Tile_37.png");
+    color:white;
 }
-  
-
 
 /* Style for contents */
 ul,ol {
     font-size: 20px;
     margin: 60px;
 }
-
-div {
-    font-size: 20px;
-    margin: 60px;
-}
-
