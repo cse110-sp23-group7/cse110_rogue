@@ -45,6 +45,8 @@ jobs:
         run: npm install
         env:
             DETECT_CHROMEDRIVER_VERSION: true
+      - name: Install ChromeDriver
+        run: DETECT_CHROMEDRIVER_VERSION=true npm install chromedriver
       - name: Test
         run: npm run wdio
       - uses: actions/upload-artifact@v1
