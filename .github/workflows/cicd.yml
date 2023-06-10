@@ -49,6 +49,13 @@ jobs:
           chrome-version: stable
       - name: Run Google Chrome 
         run: chrome --version
+      - name: Download chrome driver
+        uses: nanasess/setup-chromedriver@master
+      - name: Launch chrome driver
+        run: |
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hub &
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
       - name: Test
         run: npm run test:local
       - uses: actions/upload-artifact@v1
