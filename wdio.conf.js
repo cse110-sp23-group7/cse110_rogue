@@ -8,7 +8,7 @@ exports.config = {
 
   //
   // ==================
-  // Specify Test Files
+  // Specify Test Files==
   // ==================
   // Define which test specs should run. The pattern is relative to the directory
   // of the configuration file being run.
@@ -102,7 +102,12 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ['chromedriver'],
+  services: [
+    ['chromedriver', {
+      port: 9516,
+      args: ['--port=9516']
+    }]
+  ],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
