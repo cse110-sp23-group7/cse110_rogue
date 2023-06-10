@@ -105,7 +105,7 @@ exports.config = {
   services: [
     ['chromedriver', {
       port: 9516,
-      cli_args: ['--port=9516']
+      cli_args: ['--port=9516', '--no-sandbox']
     }]
   ],
 
