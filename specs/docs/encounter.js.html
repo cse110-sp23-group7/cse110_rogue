@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>home.js - Documentation</title>
+    <title>encounter.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">home.js</h1>
+    <h1 class="page-title">encounter.js</h1>
     
 
     
@@ -39,35 +39,66 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Load the player from the JSON file
- * **This function is asynchronous.** It returns a Promise object that will resolve to an array of fortunes.
- *
- * @param {string} url - URL of the player json file
- * @returns {Promise&lt;Object>} - the json object representing the default player
- */
-function loadDefaultPlayer (url) {
-  return fetch(url) // Fetch the JSON file using the fetch function
-    .then(response => response.json()) // Convert the response to a JSON object
-    .then(data => {
-      return data // Return the list of fortunes
+            <pre class="prettyprint source linenums"><code>window.addEventListener('load', function () {
+  fetch('../json/encounters.json')
+    .then(function (response) {
+      return response.json()
     })
-    .catch(error => {
-      console.error(error) // Log any errors to the console
-      return []
+    .then(function (data) {
+      const randomIndex = Math.floor(Math.random() * data.encounters.length)
+      const encounter = data.encounters[randomIndex]
+
+      document.getElementById('text-content').textContent = encounter.text
+
+      document.getElementById('encounter-img').src = encounter.imagePath
+
+      const actionButtons = document.getElementsByClassName('option-button')
+      for (let i = 0; i &lt; actionButtons.length; i++) {
+        actionButtons[i].textContent = encounter.actions[i].name
+      }
+
+      // Set events for each action button
+      for (let i = 0; i &lt; actionButtons.length; i++) {
+        actionButtons[i].addEventListener('click', function () {
+          const index = Array.from(actionButtons).indexOf(this)
+          const statName = encounter.actions[index].statName
+          const minStat = encounter.actions[index].minStat
+          // eslint-disable-next-line no-undef
+          const playerObj = new Player(loadPlayer()).player_obj
+          const playerStats = playerObj.effects
+
+          console.log(playerObj)
+          if (playerStats[statName] > minStat) {
+            // Passed encounter
+            playerObj.expected_grade = parseInt(playerObj.expected_grade) + 5
+            document.getElementById('text-content').textContent = encounter.actions[i].positiveResult
+          } else {
+            // Failed encounter
+            playerObj.expected_grade = parseInt(playerObj.expected_grade) - 5
+            document.getElementById('text-content').textContent = encounter.actions[i].negativeResult
+          }
+          localStorage.setItem('player', JSON.stringify(playerObj))
+
+          console.log(`changed player expected grade to ${playerObj.expected_grade}`)
+        })
+      }
     })
-}
-
-const startButton = document.querySelector('.start-button')
-
-startButton.addEventListener('click', function () {
-  loadDefaultPlayer('../json/player.json').then(player => {
-    console.log(player)
-    localStorage.setItem('player', JSON.stringify(player))
-  })
+    .catch(function (error) {
+      console.log('Error:', error)
+    })
 })
 
-module.exports = { loadDefaultPlayer }
+/**
+ * Loads player object from localStorage
+ *
+ * @returns {Object} - An JSON object representing the player
+ */
+function loadPlayer () {
+  const player = JSON.parse(localStorage.getItem('player'))
+  if (player != null) {
+    return player
+  }
+}
 </code></pre>
         </article>
     </section>
