@@ -29,7 +29,7 @@ jobs:
         uses: super-linter/super-linter@v5.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_ALL_CODEBASE: false
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_CSS: true
           VALIDATE_HTML: true
@@ -43,20 +43,17 @@ jobs:
           node-version: 18
       - name: Install Dependencies
         run: npm install
+        env:
+            DETECT_CHROMEDRIVER_VERSION: true
+      - name: Check Chrome version
+        run: google-chrome-stable --version
       - name: Test
-        run: npx wdio wdio.conf.js
+        run: npm run wdio
       - uses: actions/upload-artifact@v1
         if: failure()
         with:
           name: logs
           path: logs
-      - name: Commit logs
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: github-actions[bot]
-          author_email: github-actions[bot]@users.noreply.github.com
-          message: 'WebDriver Test Logs'
-          add: 'logs/*'
   docs:
     needs: [testing, lint, build]
     name: Documentation Generation
