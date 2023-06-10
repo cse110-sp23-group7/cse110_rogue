@@ -45,6 +45,8 @@ jobs:
         run: npm install
         env:
             DETECT_CHROMEDRIVER_VERSION: true
+      - name: Check Chrome version
+        run: google-chrome-stable --version
       - name: Test
         run: npm run wdio
       - uses: actions/upload-artifact@v1
