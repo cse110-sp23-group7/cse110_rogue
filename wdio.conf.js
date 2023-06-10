@@ -57,7 +57,9 @@ exports.config = {
     'wdio:devtoolsOptions': {
       headless: true
     },
-    'goog:chromeOptions': ['--no-sandbox', '--disable-dev-shm-usage']
+    'goog:chromeOptions': {
+      args: ['--no-sandbox', '--disable-dev-shm-usage']
+    }
   }],
   //
   // ===================
