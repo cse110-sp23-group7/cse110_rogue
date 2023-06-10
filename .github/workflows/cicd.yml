@@ -55,7 +55,7 @@ jobs:
           name: logs
           path: logs
   docs:
-    if: ${GITHUB_REF##*/} == 'master'
+    if: ${{ github.ref_name }} == 'master'
     needs: [testing, lint, build]
     name: Documentation Generation
     runs-on: ubuntu-latest
