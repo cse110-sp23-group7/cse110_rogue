@@ -54,13 +54,6 @@ jobs:
         with:
           name: logs
           path: logs
-      - name: Commit logs
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: github-actions[bot]
-          author_email: github-actions[bot]@users.noreply.github.com
-          message: 'WebDriver Test Logs'
-          add: 'logs/*'
   docs:
     needs: [testing, lint, build]
     name: Documentation Generation
