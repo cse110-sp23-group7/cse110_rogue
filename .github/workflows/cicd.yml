@@ -10,7 +10,6 @@ on:
 
 jobs:
   build:
-    if: github.ref_name == 'master'
     name: Checkout Code
     runs-on: ubuntu-latest
 
