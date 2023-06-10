@@ -56,7 +56,8 @@ exports.config = {
     browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
     'wdio:devtoolsOptions': {
       headless: true
-    }
+    },
+    'goog:chromeOptions': ['--no-sandbox', '--disable-dev-shm-usage']
   }],
   //
   // ===================
