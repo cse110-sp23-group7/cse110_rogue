@@ -37,34 +37,34 @@
       },
       {
         "name": "Midterm",
-        "text": "It's midterm time! Get your pencils ready and start writing until your hand falls off, GLHF!",
+        "text": "It's midterm time! Get your pencils ready and start writing until your hand falls off, good luck!",
         "actions": [
           {
             "name": "Rush Test",
             "statName": "rest",
             "minStat": 100,
-            "positiveResult": "You passed the midterm!",
+            "positiveResult": "You passed the midterm by rushing faster than everyone else!",
             "negativeResult": "You failed the midterm because you rushed!"
           },
           {
             "name": "Run",
             "statName": "rest",
             "minStat": 7,
-            "positiveResult": "You passed the encounter!",
+            "positiveResult": "You managed to run away from the midterm!",
             "negativeResult": "You failed the encounter because Powell caught you!"
           },
           {
             "name": "Cheat",
             "statName": "rest",
             "minStat": 9,
-            "positiveResult": "You passed the encounter!",
+            "positiveResult": "You passed the midterm by copying from the person next to you!",
             "negativeResult": "You failed the encounter because you were caught cheating!"
           },
           {
             "name": "Go slow",
             "statName": "rest",
             "minStat": 11,
-            "positiveResult": "You passed the encounter!",
+            "positiveResult": "You passed the midterm by being slow and careful!",
             "negativeResult": "You failed the encounter because you were too slow!"
           }
         ],
