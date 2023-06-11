@@ -49,11 +49,6 @@ jobs:
         run: google-chrome-stable --version
       - name: Test
         run: npm run wdio
-      - uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: logs
-          path: logs
   docs:
     if: github.ref_name == 'master'
     needs: [testing, lint, build]
