@@ -58,7 +58,7 @@ exports.config = {
       headless: true
     },
     'goog:chromeOptions': {
-      args: ['--headless', '--no-sandbox', '--disable-dev-shm-usage']
+      args: ['--no-sandbox', '--disable-dev-shm-usage']
     }
   }],
   //
