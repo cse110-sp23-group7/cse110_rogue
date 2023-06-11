@@ -47,8 +47,10 @@ jobs:
             DETECT_CHROMEDRIVER_VERSION: true
       - name: Check Chrome version
         run: google-chrome-stable --version
-      - name: Test
-        run: npm run wdio
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
+      - name: Start xvfb
+        run: xvfb-run --server-args="-screen 0 1024x768x24" npm run wdio
   docs:
     if: github.ref_name == 'master'
     needs: [testing, lint, build]
