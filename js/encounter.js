@@ -8,15 +8,15 @@ if (typeof window !== 'undefined') {
       .then(function (data) {
         const randomIndex = Math.floor(Math.random() * data.encounters.length)
         const encounter = data.encounters[randomIndex]
-  
+
         document.getElementById('text-content').textContent = encounter.text
         document.getElementById('encounter-img').src = encounter.imagePath
-  
+
         const textContentElement = document.getElementById('text-content')
         let text = encounter.text
         document.getElementById('text-content').textContent = ''
         let textIndex = 0
-  
+
         // Function to display the text character by character
         let isLoading = true
         function displayText () {
@@ -28,14 +28,14 @@ if (typeof window !== 'undefined') {
             isLoading = false
           }
         }
-  
+
         displayText()
-  
+
         const actionButtons = document.getElementsByClassName('option-button')
         for (let i = 0; i < actionButtons.length; i++) {
           actionButtons[i].textContent = encounter.actions[i].name
         }
-  
+
         let hasActed = false
         // Set events for each action button
         for (let i = 0; i < actionButtons.length; i++) {
@@ -47,7 +47,7 @@ if (typeof window !== 'undefined') {
               // eslint-disable-next-line no-undef
               const playerObj = new Player(loadPlayer()).player_obj
               const playerStats = playerObj.effects
-  
+
               console.log(playerObj)
               if (playerStats[statName] > minStat) {
                 // Passed encounter
@@ -65,24 +65,24 @@ if (typeof window !== 'undefined') {
                 playerObj.expected_grade = 100
               }
               localStorage.setItem('player', JSON.stringify(playerObj))
-  
+
               console.log(`changed player expected grade to ${playerObj.expected_grade}`)
-  
+
               // Disables clicking on all action buttons after selecting one
               hasActed = true
-  
+
               text = document.getElementById('text-content').textContent
               document.getElementById('text-content').textContent = ''
               textIndex = 0
-  
+
               // Function to display the text character by character
               isLoading = true
-  
+
               displayText()
-  
+
               playerObj.encounterIndex -= 1
               localStorage.setItem('player', JSON.stringify(playerObj))
-  
+
               setTimeout(function () {
                 if (playerObj.encounterIndex == 0) {
                   window.location.href = '../html/ending.html'

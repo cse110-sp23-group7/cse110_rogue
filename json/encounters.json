@@ -67,7 +67,7 @@
             "statName": "rest",
             "minStat": 20,
             "positiveResult": "You were able to contribute effective progress with just your pure skill as a programmer. Suck that ChatGPT!",
-            "negativeResult": "Unfortunately, you just aren't a good enough programmer right not. Maybe you will get better with time.",
+            "negativeResult": "Unfortunately, you just aren't a good enough programmer right now. Maybe you will get better with time.",
             "positiveStats": {
               "effects": {
                 "rest": -10,
@@ -255,7 +255,7 @@
             "statName": "rest",
             "minStat": 60,
             "positiveResult": "You were able to complete the midterm by rushing faster than everyone else and passed with flying colors!",
-            "negativeResult": "If you were to apply the iron triangle to your experiece of taking the midterm, your hands were the cost. You were unable to complete the midterm after you broke your hands rushing too quickly.",
+            "negativeResult": "If you were to apply the iron triangle to your experience of taking the midterm, your hands were the cost. You were unable to complete the midterm after you broke your hands rushing too quickly.",
             "positiveStats": {
               "effects": {
                 "rest": 0,
