@@ -2,10 +2,9 @@
   "fortunes": [
     {
       "title": "Fire Alarm",
-      "image": "/assets/pictures/fire-alarm.png",
       "description": "A fire alarm rang in your residence hall at 3 am!",
       "effects": {
-        "rest": -20,
+        "rest": -10,
         "happiness": -10,
         "skills": {
           "test_taking": 0,
@@ -16,7 +15,6 @@
     },
     {
       "title": "Coffee",
-      "image": "/assets/pictures/coffee.png",
       "description": "You decided a coffee is just what you needed to jump start your day!",
       "effects": {
         "rest": 10,
@@ -30,14 +28,104 @@
     },
     {
       "title": "Netflix",
-      "image": "/assets/pictures/coffee.png",
       "description": "You stayed up too late binge watching again... You enjoyed the show but was it worth it?",
       "effects": {
-        "rest": -20,
+        "rest": -5,
         "happiness": 20,
         "skills": {
           "test_taking": -10,
           "coding": 0,
+          "thinking": -10
+        }
+      }
+    },
+    {
+      "title": "Studying",
+      "description": "You were studying while your roommates were playing Smash",
+      "effects": {
+        "rest": -5,
+        "happiness": -10,
+        "skills": {
+          "test_taking": 20,
+          "coding": 15,
+          "thinking": 10
+        }
+      }
+    },
+    {
+      "title": "Labs",
+      "description": "You worked on a lab and learned a lot of new skills!",
+      "effects": {
+        "rest": 0,
+        "happiness": 5,
+        "skills": {
+          "test_taking": 10,
+          "coding": 20,
+          "thinking": 5
+        }
+      }
+    },
+    {
+      "title": "Skateboard",
+      "description": "When you were turning in an assignment in the front of the class, a random electric skateboard ran over you.",
+      "effects": {
+        "rest": -5,
+        "happiness": -15,
+        "skills": {
+          "test_taking": -10,
+          "coding": -5,
+          "thinking": -10
+        }
+      }
+    },
+    {
+      "title": "Sleep",
+      "description": "You decided to take a really long sleep and relax",
+      "effects": {
+        "rest": 20,
+        "happiness": 15,
+        "skills": {
+          "test_taking": -10,
+          "coding": 0,
+          "thinking": 10
+        }
+      }
+    },
+    {
+      "title": "Lunch",
+      "description": "You were finally able to get past that long Subway line and eat some lunch",
+      "effects": {
+        "rest": 15,
+        "happiness": 10,
+        "skills": {
+          "test_taking": 10,
+          "coding": 5,
+          "thinking": 10
+        }
+      }
+    },
+    {
+      "title": "Leetcode",
+      "description": "You decided to do some leetcode problems in the internet to prepare for future technical interviews",
+      "effects": {
+        "rest": -5,
+        "happiness": 5,
+        "skills": {
+          "test_taking": 10,
+          "coding": 20,
+          "thinking": 10
+        }
+      }
+    },
+    {
+      "title": "Absent",
+      "description": "You decided to skip class so that you could play the new Zelda game",
+      "effects": {
+        "rest": 15,
+        "happiness": 15,
+        "skills": {
+          "test_taking": -10,
+          "coding": -5,
           "thinking": -10
         }
       }
