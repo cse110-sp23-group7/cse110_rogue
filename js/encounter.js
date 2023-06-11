@@ -56,6 +56,12 @@ window.addEventListener('load', function () {
               playerObj.expected_grade = parseInt(playerObj.expected_grade) - 5
               document.getElementById('text-content').textContent = encounter.actions[i].negativeResult
             }
+            if (playerObj.expected_grade < 0) {
+              playerObj.expected_grade = 0
+            }
+            if (playerObj.expected_grade > 100) {
+              playerObj.expected_grade = 100
+            }
             localStorage.setItem('player', JSON.stringify(playerObj))
 
             console.log(`changed player expected grade to ${playerObj.expected_grade}`)
@@ -72,8 +78,16 @@ window.addEventListener('load', function () {
 
             displayText()
 
+            playerObj.encounterIndex -= 1
+            localStorage.setItem('player', JSON.stringify(playerObj))
+
             setTimeout(function () {
+              if (playerObj.encounterIndex == 0) {
+                window.location.href = '../html/ending.html'
+              }
+              else {
               window.location.href = '../html/fortune.html'
+              }
             }, text.length * 20 + 2000)
           }
         })

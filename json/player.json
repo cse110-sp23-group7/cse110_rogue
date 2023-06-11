@@ -9,5 +9,6 @@
             "thinking": 50
         }
     },
-    "expected_grade": 85
+    "expected_grade": 85,
+    "encounterIndex": 5
 }
