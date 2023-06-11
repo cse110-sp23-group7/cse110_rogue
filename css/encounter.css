@@ -3,7 +3,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end; /* Align container at the bottom */
+    height: 40vh;
+}
+
+.encounter-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 50vh;
+    width:800px;
+    border: 6px solid #000; /* Add a white border */
+    border-radius: 1px; /* Add border radius */
+    padding: 20px; /* Add some padding */
+    margin-top: 5rem;
+    background-image: url("../assets/pictures/starry_background.jpg");
 }
 
 #text-container {
@@ -29,7 +42,7 @@
     /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
     font-family: 'VT323';
     font-size: 20px;
-    width:600px;
+    width: 750px; /* set this to 600px if including the headshot again */
 }
 
 #headshot-container {
@@ -47,7 +60,6 @@
     width: 80px; /* Set the desired width */
     height: 80px; /* Set the desired height */
 }
-
 
 #next-button {
     padding: 10px 20px;
@@ -70,13 +82,11 @@
     font-size: 20px;
 }
 
-.encounter-display {
+body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50vh;
-}
-
-body {
+    height: 100vh;
     background-image: url("../assets/pictures/Tile_37.png");
 }

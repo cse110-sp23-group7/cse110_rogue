@@ -1,12 +1,14 @@
+/* stylelint-disable font-family-no-missing-generic-family-keyword */
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 /* Style for page title */
 h1 {
     padding-top: 75px;
-    font-size: 48px;
+    font-size: 60px;
     text-align: center;
     margin: 50px 0;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'VT323';
+    font-weight: 100;
     color: white;
 }
 
@@ -25,6 +27,9 @@ h2 {
 body {
     background-image: url("../assets/pictures/Tile_37.png");
     color:white;
+    font-family: 'VT323';
+    font-weight: 100;
+    font-size: 30px;
 }
 
 /* Style for contents */

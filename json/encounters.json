@@ -1,74 +1,619 @@
 {
     "encounters": [
       {
-        "name": "Encounter 1",
-        "text": "This is encounter 1",
+        "name": "8 Ball Project",
+        "text": "You have just formed your group and immediately got assigned a project to work on! Good luck working on it, at least you get to use ChatGPT.",
         "actions": [
           {
-            "name": "E1Action 1",
+            "name": "Use ChatGPT",
             "statName": "rest",
-            "minStat": 10,
-            "positiveResult": "You passed the encounter!",
-            "negativeResult": "You failed the encounter!"
+            "minStat": 30,
+            "positiveResult": "ChatGPT actually helped you a lot! You were able to complete the assignment in no time and it looked really good",
+            "negativeResult": "With the generated code, there were a ton of errors and you were not able to fix them in time. Use chatGPT with caution nect time.",
+            "positiveStats": {
+              "effects": {
+                "rest": 10,
+                "happiness": 0,
+                "skills": {
+                  "test_taking": 5,
+                  "coding": 0,
+                  "thinking": 5
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": 0,
+                "happiness": -10,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": -5,
+                  "thinking": -10
+                }
+              }
+            }
           },
           {
-            "name": "E1Action 2",
+            "name": "Copy Code",
             "statName": "rest",
-            "minStat": 5,
-            "positiveResult": "You passed the encounter!",
-            "negativeResult": "You failed the encounter!"
+            "minStat": 55,
+            "positiveResult": "You were able to get away this time. Be careful though, you never know when the TA will catch you.",
+            "negativeResult": "You were caught by the TA! You just received an AI violation and will have to take a mandatory course.",
+            "positiveStats": {
+              "effects": {
+                "rest": 10,
+                "happiness": 0,
+                "skills": {
+                  "test_taking": -10,
+                  "coding": -15,
+                  "thinking": -20
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": -20,
+                "happiness": -10,
+                "skills": {
+                  "test_taking": -10,
+                  "coding": -15,
+                  "thinking": -20
+                }
+              }
+            }
           },
           {
-            "name": "Action 3",
-            "statName": "rest",
-            "minStat": 15,
-            "positiveResult": "You passed the encounter!",
-            "negativeResult": "You failed the encounter!"
-          },
-          {
-            "name": "Action 4",
+            "name": "Just Code",
             "statName": "rest",
             "minStat": 20,
-            "positiveResult": "You passed the encounter!",
-            "negativeResult": "You failed the encounter!"
+            "positiveResult": "You were able to contribute effective progress with just your pure skill as a programmer. Suck that ChatGPT!",
+            "negativeResult": "Unfortunately, you just aren't a good enough programmer right not. Maybe you will get better with time.",
+            "positiveStats": {
+              "effects": {
+                "rest": -10,
+                "happiness": 10,
+                "skills": {
+                  "test_taking": 10,
+                  "coding": 20,
+                  "thinking": 15
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": -15,
+                "happiness": -20,
+                "skills": {
+                  "test_taking": 5,
+                  "coding": 10,
+                  "thinking": 5
+                }
+              }
+            }
+          },
+          {
+            "name": "Don't Help",
+            "statName": "rest",
+            "minStat": 80,
+            "positiveResult": "No one in your team noticed that you didn't help! All is well.",
+            "negativeResult": "You were reported to the TA! Help your team next time.",
+            "positiveStats": {
+              "effects": {
+                "rest": 20,
+                "happiness": 5,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": -10,
+                  "thinking": -10
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": 0,
+                "happiness": -10,
+                "skills": {
+                  "test_taking": -5,
+                  "coding": -20,
+                  "thinking": -15
+                }
+              }
+            }
           }
         ],
-        "imagePath": "../assets/pictures/book.png"
+        "imagePath": "../assets/pictures/chatGPT-8ball .png"
+      },
+      {
+        "name": "TA Declined Project Pitch",
+        "text": "Your team spent a lot of time coming up with a project idea. However, the TA did not like it at all and declined it! What will you do?",
+        "actions": [
+          {
+            "name": "Punch him",
+            "statName": "rest",
+            "minStat": 80,
+            "positiveResult": "The TA got KO'd and is now in complete fear of you. They decided to approve your pitch because of your vast superiority.",
+            "negativeResult": "Turns out that violence is not always the answer. You just got reported to the police and will have to go to a hearing after the quarter ends.",
+            "positiveStats": {
+              "effects": {
+                "rest": -5,
+                "happiness": 10,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": 5
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": -10,
+                "happiness": -10,
+                "skills": {
+                  "test_taking": -10,
+                  "coding": 0,
+                  "thinking": -15
+                }
+              }
+            }
+          },
+          {
+            "name": "Redo Pitch",
+            "statName": "rest",
+            "minStat": 35,
+            "positiveResult": "You were able to convince the TA the second time you pitched the idea! Sometimes, if you communicate an idea a different way, it can sound a lot more appealing.",
+            "negativeResult": "Turns out that your idea was just bad and there was no recovering from that. Your team had to come up with a completely new idea and a pitch.",
+            "positiveStats": {
+              "effects": {
+                "rest": 10,
+                "happiness": 10,
+                "skills": {
+                  "test_taking": 5,
+                  "coding": 0,
+                  "thinking": 15
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": -20,
+                "happiness": -10,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": -10
+                }
+              }
+            }
+          },
+          {
+            "name": "Yell",
+            "statName": "rest",
+            "minStat": 70,
+            "positiveResult": "The TA got tired of your incessant yelling and approved your project idea!",
+            "negativeResult": "The TA just put on earplugs and stopped listening to you. You then walked away in a fit of rage, accomplishing absolutely nothing.",
+            "positiveStats": {
+              "effects": {
+                "rest": 5,
+                "happiness": 10,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": 0
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": -10,
+                "happiness": -10,
+                "skills": {
+                  "test_taking": -5,
+                  "coding": 0,
+                  "thinking": -5
+                }
+              }
+            }
+          },
+          {
+            "name": "New Idea",
+            "statName": "rest",
+            "minStat": 30,
+            "positiveResult": "The new idea was a complete success! It was very well-liked by the TA and was approved quickly.",
+            "negativeResult": "The new idea was an absolute failure again. You can do better than that!",
+            "positiveStats": {
+              "effects": {
+                "rest": 0,
+                "happiness": 10,
+                "skills": {
+                  "test_taking": 10,
+                  "coding": 0,
+                  "thinking": 10
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": -15,
+                "happiness": 0,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": -5
+                }
+              }
+            }
+          }
+        ],
+        "imagePath": "../assets/pictures/TA.png"
       },
       {
         "name": "Midterm",
-        "text": "It's midterm time! Get your pencils ready and start writing until your hand falls off, good luck!",
+        "text": "It's midterm time! Get your pencils ready and start writing until your hands fall off. Good luck, you'll need it!",
         "actions": [
           {
             "name": "Rush Test",
             "statName": "rest",
-            "minStat": 100,
-            "positiveResult": "You passed the midterm by rushing faster than everyone else!",
-            "negativeResult": "You failed the midterm because you rushed!"
+            "minStat": 60,
+            "positiveResult": "You were able to complete the midterm by rushing faster than everyone else and passed with flying colors!",
+            "negativeResult": "If you were to apply the iron triangle to your experiece of taking the midterm, your hands were the cost. You were unable to complete the midterm after you broke your hands rushing too quickly.",
+            "positiveStats": {
+              "effects": {
+                "rest": 0,
+                "happiness": 10,
+                "skills": {
+                  "test_taking": 20,
+                  "coding": 10,
+                  "thinking": 10
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": -15,
+                "happiness": -10,
+                "skills": {
+                  "test_taking": -20,
+                  "coding": -15,
+                  "thinking": 0
+                }
+              }
+            }
           },
           {
-            "name": "Run",
+            "name": "Tear Test",
             "statName": "rest",
-            "minStat": 7,
-            "positiveResult": "You managed to run away from the midterm!",
-            "negativeResult": "You failed the encounter because Powell caught you!"
+            "minStat": 55,
+            "positiveResult": "Your fellow students tore their tests as well in solidarity. It was too long and completely unacceptable, so it was skipped.",
+            "negativeResult": "You were not given any mercy and had to piece the whole test back together, not giving you enough time to finish it.",
+            "positiveStats": {
+              "effects": {
+                "rest": 10,
+                "happiness": 10,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": 10
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": -10,
+                "happiness": 0,
+                "skills": {
+                  "test_taking": -10,
+                  "coding": 0,
+                  "thinking": -5
+                }
+              }
+            }
           },
           {
             "name": "Cheat",
             "statName": "rest",
-            "minStat": 9,
-            "positiveResult": "You passed the midterm by copying from the person next to you!",
-            "negativeResult": "You failed the encounter because you were caught cheating!"
+            "minStat": 80,
+            "positiveResult": "You were not caught and were able to get 100% on the test.",
+            "negativeResult": "You got caught! You received a 0 on the midterm",
+            "positiveStats": {
+              "effects": {
+                "rest": 20,
+                "happiness": 10,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": 15
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": 0,
+                "happiness": -15,
+                "skills": {
+                  "test_taking": -25,
+                  "coding": 0,
+                  "thinking": -10
+                }
+              }
+            }
           },
           {
             "name": "Go slow",
             "statName": "rest",
-            "minStat": 11,
-            "positiveResult": "You passed the midterm by being slow and careful!",
-            "negativeResult": "You failed the encounter because you were too slow!"
+            "minStat": 20,
+            "positiveResult": "Even though you didn't fully finish the test, your thoughtful and precise answers were able to earn you a high grade.",
+            "negativeResult": "You were not able to finish even half of the test!",
+            "positiveStats": {
+              "effects": {
+                "rest": 10,
+                "happiness": 15,
+                "skills": {
+                  "test_taking": 15,
+                  "coding": 0,
+                  "thinking": 10
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": 0,
+                "happiness": -10,
+                "skills": {
+                  "test_taking": -5,
+                  "coding": 0,
+                  "thinking": -10
+                }
+              }
+            }
           }
         ],
-        "imagePath": "../assets/pictures/test-pixelated.png"
+        "imagePath": "../assets/pictures/Exam-pixelated.png"
+      },
+      {
+        "name": "Bug in Code",
+        "text": "You are working on the CI/CD Pipeline and are trying to make the unit tests run in the pipeline using WebDriver. However, you keep getting an error saying that Chrome is not running! What will you do?",
+        "actions": [
+          {
+            "name": "Give up",
+            "statName": "rest",
+            "minStat": 70,
+            "positiveResult": "As with 99% of the previous errors, the problem just magically disappeared! Computers are truly the greatest mystery.",
+            "negativeResult": "The error is still persisting and you had to remove the feature from your pipeline.",
+            "positiveStats": {
+              "effects": {
+                "rest": 10,
+                "happiness": 5,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 5,
+                  "thinking": 5
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": 0,
+                "happiness": -5,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": -5,
+                  "thinking": -10
+                }
+              }
+            }
+          },
+          {
+            "name": "Google it",
+            "statName": "rest",
+            "minStat": 30,
+            "positiveResult": "You were able to find the exact error on StackOverflow and fix the problem quickly!",
+            "negativeResult": "There was very poor documentation on the issue online and you were not able to fix it.",
+            "positiveStats": {
+              "effects": {
+                "rest": 10,
+                "happiness": 10,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 15,
+                  "thinking": 10
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": -10,
+                "happiness": -10,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": -10,
+                  "thinking": 0
+                }
+              }
+            }
+          },
+          {
+            "name": "Smash Keys",
+            "statName": "rest",
+            "minStat": 80,
+            "positiveResult": "According to the infinite monkey theorem, a monkey hitting keys at random infinitely will type any given text. When you smashed your keyboard, you accomplished this and actually typed out the exact solution to the error.",
+            "negativeResult": "You just broke your keyboard and have to go to a computer store to fix it.",
+            "positiveStats": {
+              "effects": {
+                "rest": 10,
+                "happiness": 15,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": 15
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": -15,
+                "happiness": -20,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": -10
+                }
+              }
+            }
+          },
+          {
+            "name": "Ask ChatGPT",
+            "statName": "rest",
+            "minStat": 25,
+            "positiveResult": "ChatGPT knew the exact error in your workflow file and fixed it quickly. It really could replace software engineers one day.",
+            "negativeResult": "Turns out that ChatGPT had no clue how to fix it and now broke your linting as well. You vow to never use it again.",
+            "positiveStats": {
+              "effects": {
+                "rest": 10,
+                "happiness": 5,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 10,
+                  "thinking": 5
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": -10,
+                "happiness": -10,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": -10,
+                  "thinking": -15
+                }
+              }
+            }
+          }
+        ],
+        "imagePath": "../assets/pictures/computer-error.png"
+      },
+      {
+        "name": "Talking to Professor Powell",
+        "text": "Professor Powell unexpectedly called you to his office. You had just committed your last line of code for the project, and have no idea why he would call you. You then walk by his office and see him with a creepy, suspicious smile through his window.",
+        "actions": [
+          {
+            "name": "Go in",
+            "statName": "rest",
+            "minStat": 50,
+            "positiveResult": "Professor Powell was actually really impressed with your work and participation in class, and wanted to talk to you about how you gained those skills.",
+            "negativeResult": "Your team reported you to Professor Powell for not doing enough work. Because of this, he is going to lower your grade.",
+            "positiveStats": {
+              "effects": {
+                "rest": 10,
+                "happiness": 20,
+                "skills": {
+                  "test_taking": 10,
+                  "coding": 0,
+                  "thinking": 15
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": 0,
+                "happiness": -10,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": -10
+                }
+              }
+            }
+          },
+          {
+            "name": "Walk Past",
+            "statName": "rest",
+            "minStat": 25,
+            "positiveResult": "You walked away and nothing really happened in the end. You just dodged a potential bullet.",
+            "negativeResult": "You received an email because you did not show up and you are going to get your grade lowered.",
+            "positiveStats": {
+              "effects": {
+                "rest": 10,
+                "happiness": 0,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": 10
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": 0,
+                "happiness": -15,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": -10
+                }
+              }
+            }
+          },
+          {
+            "name": "Act Unwell",
+            "statName": "rest",
+            "minStat": 60,
+            "positiveResult": "Apparently, you are the next great actor of our generation and convinced Professor Powell that you were unwell.",
+            "negativeResult": "Professor Powell was not fooled by you and was insulted. He lowered your grade because of this.",
+            "positiveStats": {
+              "effects": {
+                "rest": 10,
+                "happiness": 10,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": 15
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": -15,
+                "happiness": -5,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": -15
+                }
+              }
+            }
+          },
+          {
+            "name": "Run away",
+            "statName": "rest",
+            "minStat": 55,
+            "positiveResult": "You ran away into a crowd and blended in.",
+            "negativeResult": "Professor Powell saw you running away and caught up to you on the electric skateboard that almost ran over him in class that one day.",
+            "positiveStats": {
+              "effects": {
+                "rest": 0,
+                "happiness": 5,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": 10
+                }
+              }
+            },
+            "negativeStats": {
+              "effects": {
+                "rest": -15,
+                "happiness": -10,
+                "skills": {
+                  "test_taking": 0,
+                  "coding": 0,
+                  "thinking": -5
+                }
+              }
+            }
+          }
+        ],
+        "imagePath": "../assets/pictures/powell-without-background.png"
       }
     ]
   }
