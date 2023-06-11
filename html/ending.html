@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ending</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+<h1>Your Final Grade is:</h1>
+<audio autoplay id="mysterious-suspense-sound" src="../assets/sounds/mysterious-suspense-sound.mp3" loop="True" preload="auto"></audio>
+<h1 class="player-grade" id="player-grade"></h1>
+<h2 class="player-grade" id="player-stats" style="color: white; text-align: center; font-family: 'VT323';"></h2>
+<div class="button-container">
+    <a href="./home.html" class="button home-button">Home</a>
+</div>
+<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" type="text/css">
+</body>
+<script src="../js/encounter.js"></script>
+<script src="../js/player.js"></script>
+<script>
+    fetch('../json/player.json')
+    .then(player => {
+        const playerObj = new Player(loadPlayer()).player_obj
+        var storedValue = playerObj.expected_grade;
+        var outputGrade = document.getElementById('player-grade');
+        var outputStats = document.getElementById('player-stats');
+        var letterGrade = '';
+        if (storedValue < 60) {
+            letterGrade = 'F'
+        } else if (storedValue < 70) {
+            letterGrade = 'D'
+        } else if (storedValue < 80) {
+            letterGrade = 'C'
+        } else if (storedValue < 90) {
+            letterGrade = 'B'
+        } else {
+            letterGrade = 'A'
+        }
+        outputGrade.innerText = storedValue + '\n' + letterGrade;
+        outputStats.innerText =
+                'Applied Fortunes: ' + '\n' + playerObj.applied_fortunes + '\n' +
+                '\n' + 'Effects: ' + '\n' +
+                'Rest: ' + playerObj.effects.rest + '\n' +
+                'Happiness: ' + playerObj.effects.happiness + '\n' +
+                '\n' + 'Skills: ' + '\n' +
+                '   Test Taking: ' + playerObj.effects.skills.test_taking + '\n' +
+                '   Coding: ' + playerObj.effects.skills.coding + '\n' +
+                '   Thinking: ' + playerObj.effects.skills.thinking + '\n'
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });</script>
+</html>
