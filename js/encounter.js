@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 window.addEventListener('load', function () {
   fetch('../json/encounters.json')
     .then(function (response) {
@@ -84,9 +85,8 @@ window.addEventListener('load', function () {
             setTimeout(function () {
               if (playerObj.encounterIndex == 0) {
                 window.location.href = '../html/ending.html'
-              }
-              else {
-              window.location.href = '../html/fortune.html'
+              } else {
+                window.location.href = '../html/fortune.html'
               }
             }, text.length * 20 + 2000)
           }
