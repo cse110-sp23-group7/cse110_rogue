@@ -9,8 +9,8 @@
 <body>
 <h1>Your Final Grade is:</h1>
 <audio autoplay id="mysterious-suspense-sound" src="../assets/sounds/mysterious-suspense-sound.mp3" loop="True" preload="auto"></audio>
-<h1 class="player_grade" id="player_grade"></h1>
-<h2 class="player_grade" id="player_stats" style="color: white; text-align: center; font-family: 'VT323';"></h2>
+<h1 class="player-grade" id="player-grade"></h1>
+<h2 class="player-grade" id="player-stats" style="color: white; text-align: center; font-family: 'VT323';"></h2>
 <div class="button-container">
     <a href="./home.html" class="button home-button">Home</a>
 </div>
@@ -23,8 +23,8 @@
     .then(player => {
         const playerObj = new Player(loadPlayer()).player_obj
         var storedValue = playerObj.expected_grade;
-        var outputGrade = document.getElementById('player_grade');
-        var outputStats = document.getElementById('player_stats');
+        var outputGrade = document.getElementById('player-grade');
+        var outputStats = document.getElementById('player-stats');
         var letterGrade = '';
         if (storedValue < 60) {
             letterGrade = 'F'
