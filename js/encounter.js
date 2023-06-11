@@ -11,16 +11,16 @@ window.addEventListener('load', function () {
       document.getElementById('encounter-img').src = encounter.imagePath
 
       const textContentElement = document.getElementById('text-content')
-      const text = encounter.text
+      let text = encounter.text
       document.getElementById('text-content').textContent = ''
-      let index = 0
+      let textIndex = 0
 
       // Function to display the text character by character
       let isLoading = true
       function displayText () {
-        if (index < text.length) {
-          textContentElement.textContent += text.charAt(index)
-          index++
+        if (textIndex < text.length) {
+          textContentElement.textContent += text.charAt(textIndex)
+          textIndex++
           setTimeout(displayText, 20) // Adjust the delay between characters here
         } else {
           isLoading = false
@@ -63,9 +63,18 @@ window.addEventListener('load', function () {
             // Disables clicking on all action buttons after selecting one
             hasActed = true
 
+            text = document.getElementById('text-content').textContent
+            document.getElementById('text-content').textContent = ''
+            textIndex = 0
+
+            // Function to display the text character by character
+            isLoading = true
+
+            displayText()
+
             setTimeout(function () {
               window.location.href = '../html/fortune.html'
-            }, 2000)
+            }, text.length * 20 + 2000)
           }
         })
       }

@@ -3,10 +3,12 @@
 /* Style for page title */
 h1 {
     padding-top: 75px;
-    font-size: 48px;
+    font-size: 60px;
     text-align: center;
     margin: 50px 0;
-    font-family: 'Josefin Sans', sans-serif;
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+    font-family: 'VT323';
+    font-weight: 100;
     color: white;
 }
 

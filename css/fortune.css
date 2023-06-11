@@ -16,7 +16,7 @@ body{
     text-align: center;
     align-items: center;
     color:white;
-    background-image: url("../assets/pictures/fortune_backround.png");
+    background-image: url("../assets/pictures/Tile_37.png");
 }
 
 /* Style for button container */
@@ -28,6 +28,7 @@ body{
 
 /* Style for encounter button */
 .encounter-button {
+    margin-top: 5rem;
     background-image: url('../assets/buttons/button-green.png');
 }
 
@@ -48,7 +49,6 @@ body{
     background-color: transparent;
     width: 300px;
     height: 200px;
-    border: 1px solid #f1f1f1;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
   }
   
@@ -78,11 +78,14 @@ body{
   
 /* Style the back side */
 .flip-card-back {
-    background-color: black;
-    color: white;
+    background-color:#1c1f1c;
     transform: rotateY(180deg);
     background-image: url("../assets/pictures/main_border.png");
     background-size: cover;
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+    font-family: 'VT323';
+    font-size: 20px;
+    font-weight: 100;
   }
 
 .fortune-content {
