@@ -67,73 +67,65 @@ function roll (array) {
   return array[index]
 }
 
-/**
- * Add two numbers together. This is a simple function to demonstrate unit testing.
- *
- * @param a {int} First number
- * @param b {int} Second number
- * @returns {int} The sum of the two numbers
- */
-function add (a, b) {
-  return a + b
-}
-window.addEventListener('DOMContentLoaded', () => {
-  let fortunesList = []
-
-  document.querySelector('.encounter-button').style.display = 'none'
-
-  // When the page loads, call the load function
-  load('../json/fortunes.json').then(fortunes => {
-    console.log('Loaded ' + fortunes.length + ' fortunes')
-    console.log(fortunes)
-    fortunesList = fortunes
-  })
-
-  const flipCards = document.querySelectorAll('.flip-card')
-
-  // When the flip card is clicked, call the roll function
-  flipCards.forEach(flipCard => {
-    flipCard.addEventListener('click', function (event) {
-      event.preventDefault()
-
-      // Roll for the fortune
-      const fortune = roll(fortunesList)
-      // eslint-disable-next-line no-undef
-      const player = new Player(loadPlayer())
-      player.add_fortune(fortune)
-      localStorage.setItem('player', JSON.stringify(player.player_obj))
-
-      const fortuneTitleElement = flipCard.querySelector('.fortune-title')
-      const fortuneDescriptionElement = flipCard.querySelector('.fortune-description')
-      const fortuneEffectsElement = flipCard.querySelector('.fortune-effects')
-
-      // Update the fortune content on the back side of the flip card
-      fortuneTitleElement.textContent = fortune.title
-      fortuneDescriptionElement.textContent = fortune.description
-      fortuneEffectsElement.innerHTML =
-                '<br>Effects: <br>' +
-                'Rest: ' + fortune.effects.rest + '<br>' +
-                'Happiness: ' + fortune.effects.happiness + '<br>' +
-                '<br>Skills: <br>' +
-                '   Test Taking: ' + fortune.effects.skills.test_taking + '<br>' +
-                '   Coding: ' + fortune.effects.skills.coding + '<br>' +
-                '   Thinking: ' + fortune.effects.skills.thinking + '<br>'
-
-      // Flip the card to show the back side
-      flipCard.querySelector('.flip-card-inner').style.transform = 'rotateY(180deg)'
-
-      // Hide the flip card and display the encounter button
-      document.querySelector('.encounter-button').style.display = 'block'
-
-      // Disable clicking on all flip cards
-      flipCards.forEach(card => {
-        card.style.pointerEvents = 'none'
+if (typeof window !== 'undefined') {
+  window.addEventListener('DOMContentLoaded', () => {
+    let fortunesList = []
+  
+    document.querySelector('.encounter-button').style.display = 'none'
+  
+    // When the page loads, call the load function
+    load('../json/fortunes.json').then(fortunes => {
+      console.log('Loaded ' + fortunes.length + ' fortunes')
+      console.log(fortunes)
+      fortunesList = fortunes
+    })
+  
+    const flipCards = document.querySelectorAll('.flip-card')
+  
+    // When the flip card is clicked, call the roll function
+    flipCards.forEach(flipCard => {
+      flipCard.addEventListener('click', function (event) {
+        event.preventDefault()
+  
+        // Roll for the fortune
+        const fortune = roll(fortunesList)
+        // eslint-disable-next-line no-undef
+        const player = new Player(loadPlayer())
+        player.add_fortune(fortune)
+        localStorage.setItem('player', JSON.stringify(player.player_obj))
+  
+        const fortuneTitleElement = flipCard.querySelector('.fortune-title')
+        const fortuneDescriptionElement = flipCard.querySelector('.fortune-description')
+        const fortuneEffectsElement = flipCard.querySelector('.fortune-effects')
+  
+        // Update the fortune content on the back side of the flip card
+        fortuneTitleElement.textContent = fortune.title
+        fortuneDescriptionElement.textContent = fortune.description
+        fortuneEffectsElement.innerHTML =
+                  '<br>Effects: <br>' +
+                  'Rest: ' + fortune.effects.rest + '<br>' +
+                  'Happiness: ' + fortune.effects.happiness + '<br>' +
+                  '<br>Skills: <br>' +
+                  '   Test Taking: ' + fortune.effects.skills.test_taking + '<br>' +
+                  '   Coding: ' + fortune.effects.skills.coding + '<br>' +
+                  '   Thinking: ' + fortune.effects.skills.thinking + '<br>'
+  
+        // Flip the card to show the back side
+        flipCard.querySelector('.flip-card-inner').style.transform = 'rotateY(180deg)'
+  
+        // Hide the flip card and display the encounter button
+        document.querySelector('.encounter-button').style.display = 'block'
+  
+        // Disable clicking on all flip cards
+        flipCards.forEach(card => {
+          card.style.pointerEvents = 'none'
+        })
       })
     })
   })
-})
+}
 
 // Only export the functions if we are running in a Node.js environment (i.e. running tests)
 if (typeof module === 'object') {
-  module.exports = { load, roll, add }
+  module.exports = { load, roll }
 }
