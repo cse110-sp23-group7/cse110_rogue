@@ -25,3 +25,5 @@ startButton.addEventListener('click', function () {
     localStorage.setItem('player', JSON.stringify(player))
   })
 })
+
+module.exports = { loadDefaultPlayer }

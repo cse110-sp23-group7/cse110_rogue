@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="../css/home.css">
 </head>
 <body>
-<h1>Your Final Grade is:</h1>
+<h1>Your Predicted Grade in CSE 110:</h1>
 <audio autoplay id="mysterious-suspense-sound" src="../assets/sounds/mysterious-suspense-sound.mp3" loop="True" preload="auto"></audio>
-<h1 class="player-grade" id="player-grade"></h1>
+<h1 class="player-grade" id="player-grade" style="color: green"></h1>
 <h2 class="player-grade" id="player-stats" style="color: white; text-align: center; font-family: 'VT323';"></h2>
 <div class="button-container">
     <a href="./home.html" class="button home-button">Home</a>
@@ -37,7 +37,7 @@
         } else {
             letterGrade = 'A'
         }
-        outputGrade.innerText = storedValue + '\n' + letterGrade;
+        outputGrade.innerText = storedValue + '% ' + letterGrade;
         outputStats.innerText =
                 'Applied Fortunes: ' + '\n' + playerObj.applied_fortunes + '\n' +
                 '\n' + 'Effects: ' + '\n' +

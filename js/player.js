@@ -76,3 +76,5 @@ class Player {
     return JSON.stringify(this)
   }
 }
+
+module.exports = Player
