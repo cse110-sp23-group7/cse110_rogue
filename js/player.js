@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 class Player {
   /**
      * Creates a new player instance from json object

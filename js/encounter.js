@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable eqeqeq */
 if (typeof window !== 'undefined') {
   window.addEventListener('load', function () {
@@ -6,8 +7,12 @@ if (typeof window !== 'undefined') {
         return response.json()
       })
       .then(function (data) {
-        const randomIndex = Math.floor(Math.random() * data.encounters.length)
-        const encounter = data.encounters[randomIndex]
+        const playerObjEncounter = new Player(loadPlayer()).player_obj
+        const encounter = data.encounters[playerObjEncounter.encounterIndex]
+
+        if (!window.location.href.includes('encounter')) {
+          return
+        }
 
         document.getElementById('text-content').textContent = encounter.text
         document.getElementById('encounter-img').src = encounter.imagePath
@@ -44,7 +49,7 @@ if (typeof window !== 'undefined') {
               const index = Array.from(actionButtons).indexOf(this)
               const statName = encounter.actions[index].statName
               const minStat = encounter.actions[index].minStat
-              // eslint-disable-next-line no-undef
+
               const playerObj = new Player(loadPlayer()).player_obj
               const playerStats = playerObj.effects
 
@@ -80,16 +85,18 @@ if (typeof window !== 'undefined') {
 
               displayText()
 
-              playerObj.encounterIndex -= 1
+              playerObj.encounterIndex += 1
               localStorage.setItem('player', JSON.stringify(playerObj))
 
-              setTimeout(function () {
-                if (playerObj.encounterIndex == 0) {
-                  window.location.href = '../html/ending.html'
-                } else {
+              const continueButton = document.getElementById('continue-button')
+              continueButton.style.display = 'block' // Show the Continue button
+              continueButton.addEventListener('click', function () {
+                if (playerObj.encounterIndex < 5) {
                   window.location.href = '../html/fortune.html'
+                } else {
+                  window.location.href = '../html/ending.html'
                 }
-              }, text.length * 20 + 2000)
+              })
             }
           })
         }
