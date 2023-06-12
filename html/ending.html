@@ -9,7 +9,7 @@
 <body>
 <h1>Your Predicted Grade in CSE 110:</h1>
 <audio autoplay id="mysterious-suspense-sound" src="../assets/sounds/mysterious-suspense-sound.mp3" loop="True" preload="auto"></audio>
-<h1 class="player-grade" id="player-grade" style="color: green"></h1>
+<h1 class="player-grade" id="player-grade"></h1>
 <h2 class="player-grade" id="player-stats" style="color: white; text-align: center; font-family: 'VT323';"></h2>
 <div class="button-container">
     <a href="./home.html" class="button home-button">Home</a>
@@ -26,18 +26,22 @@
         var outputGrade = document.getElementById('player-grade');
         var outputStats = document.getElementById('player-stats');
         var letterGrade = '';
-        if (storedValue < 60) {
-            letterGrade = 'F'
-        } else if (storedValue < 70) {
-            letterGrade = 'D'
-        } else if (storedValue < 80) {
-            letterGrade = 'C'
-        } else if (storedValue < 90) {
-            letterGrade = 'B'
+        var color = '';
+        if (storedValue >= 90 && storedValue <= 100) {
+            letterGrade = 'A';
+            color = 'green';
+        } else if (storedValue >= 80 && storedValue <= 89) {
+            letterGrade = 'B';
+            color = 'orange';
+        } else if (storedValue >= 70 && storedValue <= 79) {
+            letterGrade = 'C';
+            color = 'red';
         } else {
-            letterGrade = 'A'
+            letterGrade = 'F';
+            color = 'purple';
         }
         outputGrade.innerText = storedValue + '% ' + letterGrade;
+        outputGrade.style.color = color;
         outputStats.innerText =
                 'Applied Fortunes: ' + '\n' + playerObj.applied_fortunes + '\n' +
                 '\n' + 'Effects: ' + '\n' +
