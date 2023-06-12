@@ -30,7 +30,7 @@
 #text-box {
     position: relative;
     background-color: rgb(0 0 0 / 80%);
-    padding: 10px;
+    padding: 8px;
     border-radius: 5px;
     width: 800px;
     height: 125px;
@@ -45,25 +45,12 @@
     width: 750px; /* set this to 600px if including the headshot again */
 }
 
-#headshot-container {
+#continue-button {
     position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    width: 80px;
-    height: 80px;
-    border: 1px solid black;
-    z-index: 10;
-}
-
-#headshot-img {
-    width: 80px; /* Set the desired width */
-    height: 80px; /* Set the desired height */
-}
-
-#next-button {
-    padding: 10px 20px;
-}
+    bottom: 5px;
+    right: 5px;
+    font-size: 20px;
+}  
 
 #options-container {
     display: flex;
