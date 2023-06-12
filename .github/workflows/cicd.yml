@@ -41,6 +41,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 18
+      - name: Move to cfg
+        run: cd ./cfg
       - name: Install Dependencies
         run: npm install
         env:
@@ -61,6 +63,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 18
+      - name: Move to cfg
+        run: cd ./cfg
       - name: Install
         run: npm install
       - name: Generate Docs
