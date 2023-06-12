@@ -41,17 +41,18 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 18
-      - name: Move to cfg
-        run: cd ./cfg
       - name: Install Dependencies
+        workingdirectory: ./cfg
         run: npm install
         env:
             DETECT_CHROMEDRIVER_VERSION: true
       - name: Check Chrome version
         run: google-chrome-stable --version
       - name: Install xvfb
+        workingdirectory: ./cfg
         run: sudo apt-get install xvfb
       - name: Start xvfb
+        workingdirectory: ./cfg
         run: xvfb-run --server-args="-screen 0 1024x768x24" npm run wdio
   docs:
     if: github.ref_name == 'master'
@@ -63,11 +64,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 18
-      - name: Move to cfg
-        run: cd ./cfg
       - name: Install
+        workingdirectory: ./cfg
         run: npm install
       - name: Generate Docs
+        workingdirectory: ./cfg
         run: npm run docs
       - name: Commit JSDocs
         uses: EndBug/add-and-commit@v9
