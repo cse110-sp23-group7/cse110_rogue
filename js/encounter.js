@@ -91,7 +91,11 @@ if (typeof window !== 'undefined') {
               const continueButton = document.getElementById('continue-button')
               continueButton.style.display = 'block' // Show the Continue button
               continueButton.addEventListener('click', function () {
-                window.location.href = '../html/fortune.html'
+                if (encounterIndex >= 5) {
+                  window.location.href = '../html/fortune.html'
+                } else {
+                  window.location.href = '../html/ending.html'
+                }
               })
             }
           })
