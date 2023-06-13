@@ -2,7 +2,7 @@
 const Player = require('../../js/player.js')
 
 describe('Player', () => {
-  let player
+  let playerObj
 
   beforeEach(() => {
     const playerJson = {
@@ -17,20 +17,20 @@ describe('Player', () => {
         }
       }
     }
-    player = new Player(playerJson)
+    playerObj = new Player(playerJson)
   })
 
   describe('add_statistic', () => {
     it('should add two numbers together', () => {
-      expect(player.add_statistic(10, 20)).toBe(30)
+      expect(playerObj.add_statistic(10, 20)).toBe(30)
     })
 
     it('should limit the result to a maximum of 100', () => {
-      expect(player.add_statistic(90, 30)).toBe(100)
+      expect(playerObj.add_statistic(90, 30)).toBe(100)
     })
 
     it('should limit the result to a minimum of 0', () => {
-      expect(player.add_statistic(10, -20)).toBe(0)
+      expect(playerObj.add_statistic(10, -20)).toBe(0)
     })
   })
 
@@ -48,13 +48,13 @@ describe('Player', () => {
         }
       }
 
-      player.add_effect(effect)
+      playerObj.add_effect(effect)
 
-      expect(player.player_obj.effects.rest).toBe(40)
-      expect(player.player_obj.effects.happiness).toBe(95)
-      expect(player.player_obj.effects.skills.test_taking).toBe(95)
-      expect(player.player_obj.effects.skills.coding).toBe(45)
-      expect(player.player_obj.effects.skills.thinking).toBe(90)
+      expect(playerObj.player_obj.effects.rest).toBe(40)
+      expect(playerObj.player_obj.effects.happiness).toBe(95)
+      expect(playerObj.player_obj.effects.skills.test_taking).toBe(95)
+      expect(playerObj.player_obj.effects.skills.coding).toBe(45)
+      expect(playerObj.player_obj.effects.skills.thinking).toBe(90)
     })
   })
 
@@ -73,22 +73,22 @@ describe('Player', () => {
         }
       }
 
-      player.add_fortune(fortune)
+      playerObj.add_fortune(fortune)
 
-      expect(player.player_obj.effects.rest).toBe(55)
-      expect(player.player_obj.effects.happiness).toBe(85)
-      expect(player.player_obj.effects.skills.test_taking).toBe(95)
-      expect(player.player_obj.effects.skills.coding).toBe(70)
-      expect(player.player_obj.effects.skills.thinking).toBe(85)
+      expect(playerObj.player_obj.effects.rest).toBe(55)
+      expect(playerObj.player_obj.effects.happiness).toBe(85)
+      expect(playerObj.player_obj.effects.skills.test_taking).toBe(95)
+      expect(playerObj.player_obj.effects.skills.coding).toBe(70)
+      expect(playerObj.player_obj.effects.skills.thinking).toBe(85)
 
-      expect(player.player_obj.applied_fortunes).toContain('Good Fortune')
+      expect(playerObj.player_obj.applied_fortunes).toContain('Good Fortune')
     })
   })
 
   describe('to_json', () => {
     it('should convert the player object to a JSON object', () => {
-      const playerJson = JSON.parse(player.to_json())
-      expect(playerJson).toEqual(player)
+      const playerJson = JSON.parse(playerObj.to_json())
+      expect(playerJson).toEqual(playerObj)
     })
   })
 })
