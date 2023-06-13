@@ -74,73 +74,155 @@
 <hr>
 <h2>Setup</h2>
 <ol>
-<li>Install <code>Node.js</code> and <code>npm</code> (Node Package Manager):</li>
+<li>Clone the repository: <code>git clone https://github.com/cse110-sp23-group7/cse110_rogue.git</code></li>
+<li>To install dependencies, first cd into the cfg folder using <code>cd ./cfg</code></li>
+<li>Then run <code>npm install</code></li>
+<li>You can then run the following commands in the cfg directory:</li>
 </ol>
-<p><strong>Linux:</strong></p>
-<pre class="prettyprint source lang-bash"><code>sudo apt install nodejs npm
-</code></pre>
-<p><strong>MacOS:</strong></p>
-<pre class="prettyprint source lang-bash"><code>brew install node
-</code></pre>
-<p><strong>Windows:</strong></p>
-<pre class="prettyprint source lang-bash"><code>winget install -e --id OpenJS.NodeJS
-</code></pre>
-<ol start="2">
-<li>Clone the repository:</li>
-</ol>
-<pre class="prettyprint source lang-bash"><code>git clone https://github.com/cse110-sp23-group7/cse110_rogue.git
-</code></pre>
-<ol start="3">
-<li>Install dependencies:</li>
-</ol>
-<pre class="prettyprint source lang-bash"><code>npm install
-</code></pre>
-<blockquote>
-<p>Current dependencies are:</p>
 <ul>
-<li><code>jest</code> for unit testing</li>
-<li><code>jsdoc</code> for documentation generation</li>
-</ul>
-</blockquote>
-<h2>Usage</h2>
-<h3>Run unit tests:</h3>
-<pre class="prettyprint source lang-bash"><code>npm run test
-</code></pre>
-<h3>Generate documentation:</h3>
-<pre class="prettyprint source lang-bash"><code>npm run docs
-</code></pre>
-<blockquote>
-<p>Docs will be generated in the <code>docs</code> directory. and can be opened using a browser.
-These docs are generated using code comments, so be sure to <strong>comment your code!</strong></p>
-</blockquote>
-<h3>Launch website:</h3>
-<ul>
-<li>Open <code>index.html</code> in a browser. Note that <code>index.html</code> will
-automatically redirect the user to <code>home.html</code>.</li>
+<li><code>npm run wdio</code> - runs our tests</li>
+<li><code>npm run docs</code> - generates documentation</li>
+<li><code>npx htmlhint &quot;../html/*.html&quot;</code> - lints html files</li>
+<li><code>npx stylelint &quot;../css/*.css&quot;</code> - lints css files</li>
+<li><code>npx eslint &quot;../**/js/*.js&quot;</code> - lints javascript files</li>
+<li><code>npx eslint &quot;../**/test/specs/*.js&quot;</code> - lints test files (if you end up moving the tests out of the specs sub-directory as we talked about, then remove specs from the filepath in the command)</li>
 </ul>
 <h2>Project Structure</h2>
 <pre class="prettyprint source"><code>cse110_rogue/
-|-- index.html          # Start page, automatically redirects to home.html
+|-- .github/
+|   |-- workflows/
+|   |   |-- cicd.yml
+|   |-- README.md
+|-- admin/
+|   |-- branding/
+|   |   |-- 404teamphoto.png
+|   |-- cipipeline/
+|   |   |-- githubactionsphase1.png
+|   |   |-- phase1.drawio.png
+|   |   |-- phase1.md
+|   |   |-- phase1.mp4
+|   |-- meetings/
+|   |   |-- 041823-kickoff.md
+|   |   |-- 042123-meeting.md
+|   |   |-- 042523-meeting.md
+|   |   |-- 042823-brainstorm.md
+|   |   |-- 050223-brainstorm.md
+|   |   |-- 050523-meeting.md
+|   |   |-- 050823-tameeting.md
+|   |   |-- 050923-meeting.md
+|   |   |-- 051223-meeting.md
+|   |   |-- 051623-meeting.md
+|   |   |-- 051923-meeting.md
+|   |   |-- 052223-tameeting.md
+|   |   |-- 052323-meeting.md
+|   |   |-- 052623-sprint-1-review.md
+|   |   |-- 052823-retrospective.md
+|   |   |-- 053023-meeting.md
+|   |   |-- StickyNote.png
+|   |-- misc/
+|   |   |-- Code.png
+|   |   |-- Question-1.png
+|   |   |-- Question-2.png
+|   |   |-- cse110contacts.png
+|   |   |-- rules-adaqi.pdf
+|   |   |-- rules-ankitbhatia.pdf
+|   |   |-- rules-anukulvuppala.pdf
+|   |   |-- rules-eddieli.pdf
+|   |   |-- rules-maryvu.pdf
+|   |   |-- rules-matthewshin.pdf
+|   |   |-- rules-nishantbegani.pdf
+|   |   |-- rules-rajsunku.pdf
+|   |   |-- rules-sizheli.pdf
+|   |   |-- rules.md
+|   |-- videos/
+|   |   |-- statusvideo1.mp4
+|   |   |-- teamintro.mp4
+|   |-- team.md
+|-- assets/
+|   |-- pictures/
+|   |   |-- Exam-pixelated.png
+|   |   |-- TA.png
+|   |   |-- Dial_37.png
+|   |   |-- card_back.png
+|   |   |-- chatGPT-8ball .png
+|   |   |-- coding.png
+|   |   |-- computer-error.png
+|   |   |-- main_border.png
+|   |   |-- powell-without-background.png
+|   |   |-- starry_background.jpg
+|   |   |-- test-pixelated.png
+|   |-- sounds/
+|   |   |-- mysterious-suspense-sound.mp3
+|-- cfg/
+|   |-- babel.config.js
+|   |-- jsdoc.conf.json
+|   |-- package.json
 |-- css/
-|   |-- styles.css      # Main stylesheet, applied across all pages
-|   |-- fortune.css     # Stylesheet for fortune.html
-|   |-- home.css        # Stylesheet for home.html
-|   |-- encounter.css   # Stylesheet for encounter.html
-|-- js/
-|   |-- home.js         # Script for home.html
-|   |-- fortune.js      # Script for fortune.html
-|   |-- encounter.js    # Script for encounter.html
+|   |-- .stylelintrc.json
+|   |-- credits.css
+|   |-- encounter.css
+|   |-- fortune.css
+|   |-- help.css
+|   |-- home.css
+|   |-- styles.css
 |-- html/
-|   |-- home.html       # Home page
-|   |-- fortune.html    # Fortune page
-|   |-- encounter.html  # Encounter page
-|-- assets/             # Images and other assets
-|   |-- buttons/        # Buttons used across all pages
-|   |-- sprites/        # Sprites used across all pages
-|-- tests/              # Unit tests, powered by Jest
-|   |-- fortune.test.js
-|-- package.json        # Project metadata. Use npm to install dependencies
-</code></pre></article>
+|   |-- credits.html
+|   |-- encounter.html
+|   |-- ending.html
+|   |-- fortune.html
+|   |-- help.html
+|   |-- home.html
+|-- js/
+|   |-- .eslintrc.yml
+|   |-- encounter.js
+|   |-- fortune.js
+|   |-- home.js
+|   |-- player.js
+|-- json/
+|   |-- encounters.json
+|   |-- fortunes.json
+|   |-- player.json
+|-- specs/
+|   |-- adr/
+|   |   |-- 051923-Linting.md
+|   |   |-- 052023-Code-Quality.md
+|   |   |-- 052023-Unit-Testing.md
+|   |-- brainstorm/
+|   |   |-- Brainstorming.pdf
+|   |-- docs/
+|   |   |-- fonts/
+|   |   |   |-- * excluded for brevity *
+|   |   |-- scripts/
+|   |   |   |-- prettify/
+|   |   |   |   |-- Apache-License-2.0.txt
+|   |   |   |   |-- lang-css.js
+|   |   |   |   |-- prettify.js
+|   |   |   |-- linenumber.js
+|   |   |-- styles/
+|   |   |   |-- jsdoc-default.css
+|   |   |   |-- prettify-jsdoc.css
+|   |   |   |-- prettify-tomorrow.css
+|   |   |-- .gitkeep
+|   |   |-- Player.html
+|   |   |-- encounter.js.html
+|   |   |-- fortune.js.html
+|   |   |-- global.html
+|   |   |-- home.js.html
+|   |   |-- index.html
+|   |   |-- player.js.html
+|   |-- markdown/
+|   |   |-- roadmap.md
+|   |-- pitch/
+|   |   |-- Pitch Presentation.pptx
+|-- test/
+|   |-- specs/
+|   |   |-- e2e.test.js
+|   |   |-- encounter.test.js
+|   |   |-- player.test.js
+|   |-- eslintrc.yml
+|   |-- wdio.conf.js
+|-- .gitignore
+|-- index.html</code></pre></article>
     </section>
 
 
@@ -153,7 +235,7 @@ automatically redirect the user to <code>home.html</code>.</li>
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Tue Jun 13 2023 03:54:19 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Tue Jun 13 2023 15:20:05 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
