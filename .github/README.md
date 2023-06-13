@@ -1,6 +1,8 @@
 [![CI/CD Full Pipeline](https://github.com/cse110-sp23-group7/cse110_rogue/actions/workflows/cicd.yml/badge.svg?branch=master)](https://github.com/cse110-sp23-group7/cse110_rogue/actions/workflows/cicd.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9ac5b25d8286395a9b45/maintainability)](https://codeclimate.com/github/cse110-sp23-group7/cse110_rogue/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/9ac5b25d8286395a9b45/test_coverage)](https://codeclimate.com/github/cse110-sp23-group7/cse110_rogue/test_coverage)
+
+### NOTE: include link to md
+[Roadmap Document](../specs/markdown/roadmap.md)
 
 # Team 404: CSE110 Roguelike
 
