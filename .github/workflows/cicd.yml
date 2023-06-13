@@ -43,7 +43,7 @@ jobs:
           node-version: 18
       - name: Install Dependencies
         working-directory: ./cfg
-        run: npm install
+        run: rm -rf node_modules package-lock.json && npm install
         env:
             DETECT_CHROMEDRIVER_VERSION: true
       - name: Check Chrome version
@@ -66,7 +66,7 @@ jobs:
           node-version: 18
       - name: Install
         working-directory: ./cfg
-        run: npm install
+        run: rm -rf node_modules package-lock.json && npm install
       - name: Generate Docs
         working-directory: ./cfg
         run: npm run docs
