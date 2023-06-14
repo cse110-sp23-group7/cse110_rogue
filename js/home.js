@@ -1,5 +1,5 @@
 /**
- * Load the player from the JSON file
+ * Load the player from the JSON file from project
  * **This function is asynchronous.** It returns a Promise object that will resolve to an array of fortunes.
  *
  * @param {string} url - URL of the player json file
