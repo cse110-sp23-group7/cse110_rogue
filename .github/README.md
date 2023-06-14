@@ -39,14 +39,14 @@ The first version of our webapp features a prototype skeleton, with a working ho
 - `npx htmlhint "../html/*.html"` - lints html files
 - `npx stylelint "../css/*.css"` - lints css files
 - `npx eslint "../**/js/*.js"` - lints javascript files
-- `npx eslint "../**/test/specs/*.js"` - lints test files (if you end up moving the tests out of the specs sub-directory as we talked about, then remove specs from the filepath in the command)
+- `npx eslint "../**/test/specs/*.js"` - lints test files
 
 ## Project Structure
 ```
 cse110_rogue/
 |-- .github/
 |   |-- workflows/
-|   |   |-- cicd.yml
+|   |   |-- cicd.yml # Our CI/CD pipeline
 |   |-- README.md
 |-- admin/
 |   |-- branding/
@@ -57,63 +57,21 @@ cse110_rogue/
 |   |   |-- phase1.md
 |   |   |-- phase1.mp4
 |   |-- meetings/
-|   |   |-- 041823-kickoff.md
-|   |   |-- 042123-meeting.md
-|   |   |-- 042523-meeting.md
-|   |   |-- 042823-brainstorm.md
-|   |   |-- 050223-brainstorm.md
-|   |   |-- 050523-meeting.md
-|   |   |-- 050823-tameeting.md
-|   |   |-- 050923-meeting.md
-|   |   |-- 051223-meeting.md
-|   |   |-- 051623-meeting.md
-|   |   |-- 051923-meeting.md
-|   |   |-- 052223-tameeting.md
-|   |   |-- 052323-meeting.md
-|   |   |-- 052623-sprint-1-review.md
-|   |   |-- 052823-retrospective.md
-|   |   |-- 053023-meeting.md
-|   |   |-- StickyNote.png
+|   |   |-- /* contains all of our meeting minutes */
 |   |-- misc/
-|   |   |-- Code.png
-|   |   |-- Question-1.png
-|   |   |-- Question-2.png
-|   |   |-- cse110contacts.png
-|   |   |-- rules-adaqi.pdf
-|   |   |-- rules-ankitbhatia.pdf
-|   |   |-- rules-anukulvuppala.pdf
-|   |   |-- rules-eddieli.pdf
-|   |   |-- rules-maryvu.pdf
-|   |   |-- rules-matthewshin.pdf
-|   |   |-- rules-nishantbegani.pdf
-|   |   |-- rules-rajsunku.pdf
-|   |   |-- rules-sizheli.pdf
-|   |   |-- rules.md
+|   |   |-- /* contains random images and rules document */
 |   |-- videos/
-|   |   |-- statusvideo1.mp4
-|   |   |-- teamintro.mp4
-|   |-- team.md
+|   |   |-- /* contains team videos */
+|   |-- team.md # Our team page
 |-- assets/
 |   |-- pictures/
-|   |   |-- Exam-pixelated.png
-|   |   |-- TA.png
-|   |   |-- Dial_37.png
-|   |   |-- card_back.png
-|   |   |-- chatGPT-8ball .png
-|   |   |-- coding.png
-|   |   |-- computer-error.png
-|   |   |-- main_border.png
-|   |   |-- powell-without-background.png
-|   |   |-- starry_background.jpg
-|   |   |-- test-pixelated.png
+|   |   |-- /* Contains all of the pictures we used for the website */
 |   |-- sounds/
-|   |   |-- mysterious-suspense-sound.mp3
+|   |   |-- mysterious-suspense-sound.mp3 # Our background noise
 |-- cfg/
-|   |-- babel.config.js
-|   |-- jsdoc.conf.json
-|   |-- package.json
+|   |-- /* contains config files */
 |-- css/
-|   |-- .stylelintrc.json
+|   |-- .stylelintrc.json # css linting config
 |   |-- credits.css
 |   |-- encounter.css
 |   |-- fortune.css
@@ -128,7 +86,7 @@ cse110_rogue/
 |   |-- help.html
 |   |-- home.html
 |-- js/
-|   |-- .eslintrc.yml
+|   |-- .eslintrc.yml # js linting config
 |   |-- encounter.js
 |   |-- fortune.js
 |   |-- home.js
@@ -145,26 +103,7 @@ cse110_rogue/
 |   |-- brainstorm/
 |   |   |-- Brainstorming.pdf
 |   |-- docs/
-|   |   |-- fonts/
-|   |   |   |-- * excluded for brevity *
-|   |   |-- scripts/
-|   |   |   |-- prettify/
-|   |   |   |   |-- Apache-License-2.0.txt
-|   |   |   |   |-- lang-css.js
-|   |   |   |   |-- prettify.js
-|   |   |   |-- linenumber.js
-|   |   |-- styles/
-|   |   |   |-- jsdoc-default.css
-|   |   |   |-- prettify-jsdoc.css
-|   |   |   |-- prettify-tomorrow.css
-|   |   |-- .gitkeep
-|   |   |-- Player.html
-|   |   |-- encounter.js.html
-|   |   |-- fortune.js.html
-|   |   |-- global.html
-|   |   |-- home.js.html
-|   |   |-- index.html
-|   |   |-- player.js.html
+|   |   |-- /* contains the auto-generated jsdocs */
 |   |-- markdown/
 |   |   |-- roadmap.md
 |   |-- pitch/
@@ -177,4 +116,4 @@ cse110_rogue/
 |   |-- eslintrc.yml
 |   |-- wdio.conf.js
 |-- .gitignore
-|-- index.html
+|-- index.html # automatically redirects to home.html
