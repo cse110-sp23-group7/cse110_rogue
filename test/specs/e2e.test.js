@@ -32,7 +32,7 @@ describe('Navigation', () => {
     const creditsButton = await $('.credits-button')
     await creditsButton.click()
     await expect(browser).toHaveUrl('https://cse110-sp23-group7.github.io/cse110_rogue/html/credits.html')
-    await expect(browser).toHaveTitle('Title') // TODO: should be 'Credits' after html changes are pushed to github pages
+    await expect(browser).toHaveTitle('Credits') // TODO: should be 'Credits' after html changes are pushed to github pages
   })
 
   it('should navigate from home to help', async () => {
@@ -40,7 +40,7 @@ describe('Navigation', () => {
     const helpButton = await $('.help-button')
     await helpButton.click()
     await expect(browser).toHaveUrl('https://cse110-sp23-group7.github.io/cse110_rogue/html/help.html')
-    await expect(browser).toHaveTitle('Title') // TODO: should be 'Help' after html changes are pushed to github pages
+    await expect(browser).toHaveTitle('Help') // TODO: should be 'Help' after html changes are pushed to github pages
   })
 
   it('should navigate from credits to home', async () => {

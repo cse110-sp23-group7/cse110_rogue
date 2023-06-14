@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Player.html">Player</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#add_effect">add_effect</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#add_fortune">add_fortune</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#add_statistic">add_statistic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#to_json">to_json</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#load">load</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#loadDefaultPlayer">loadDefaultPlayer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#loadPlayer">loadPlayer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#roll">roll</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Player.html">Player</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#add_effect">add_effect</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#add_fortune">add_fortune</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#add_statistic">add_statistic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Player.html#to_json">to_json</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#load">load</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#loadDefaultPlayer">loadDefaultPlayer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#loadPlayer">loadPlayer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#roll">roll</a></span></li>
 </nav>
 
 <div id="main">
@@ -39,91 +39,125 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>window.addEventListener('load', function () {
-  fetch('../json/encounters.json')
-    .then(function (response) {
-      return response.json()
-    })
-    .then(function (data) {
-      const randomIndex = Math.floor(Math.random() * data.encounters.length)
-      const encounter = data.encounters[randomIndex]
+            <pre class="prettyprint source linenums"><code>/* eslint-disable no-undef */
+/* eslint-disable eqeqeq */
+if (typeof window !== 'undefined') {
+  window.addEventListener('load', function () {
+    fetch('../json/encounters.json')
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (data) {
+        const playerObjEncounter = new Player(loadPlayer()).player_obj
+        const encounter = data.encounters[playerObjEncounter.encounterIndex]
 
-      document.getElementById('text-content').textContent = encounter.text
-      document.getElementById('encounter-img').src = encounter.imagePath
-
-      const textContentElement = document.getElementById('text-content')
-      let text = encounter.text
-      document.getElementById('text-content').textContent = ''
-      let textIndex = 0
-
-      // Function to display the text character by character
-      let isLoading = true
-      function displayText () {
-        if (textIndex &lt; text.length) {
-          textContentElement.textContent += text.charAt(textIndex)
-          textIndex++
-          setTimeout(displayText, 20) // Adjust the delay between characters here
-        } else {
-          isLoading = false
+        if (!window.location.href.includes('encounter')) {
+          return
         }
-      }
 
-      displayText()
+        document.getElementById('text-content').textContent = encounter.text
+        document.getElementById('encounter-img').src = encounter.imagePath
 
-      const actionButtons = document.getElementsByClassName('option-button')
-      for (let i = 0; i &lt; actionButtons.length; i++) {
-        actionButtons[i].textContent = encounter.actions[i].name
-      }
+        const textContentElement = document.getElementById('text-content')
+        let text = encounter.text
+        document.getElementById('text-content').textContent = ''
+        let textIndex = 0
 
-      let hasActed = false
-      // Set events for each action button
-      for (let i = 0; i &lt; actionButtons.length; i++) {
-        actionButtons[i].addEventListener('click', function () {
-          if (!isLoading &amp;&amp; !hasActed) {
-            const index = Array.from(actionButtons).indexOf(this)
-            const statName = encounter.actions[index].statName
-            const minStat = encounter.actions[index].minStat
-            // eslint-disable-next-line no-undef
-            const playerObj = new Player(loadPlayer()).player_obj
-            const playerStats = playerObj.effects
-
-            console.log(playerObj)
-            if (playerStats[statName] > minStat) {
-              // Passed encounter
-              playerObj.expected_grade = parseInt(playerObj.expected_grade) + 5
-              document.getElementById('text-content').textContent = encounter.actions[i].positiveResult
-            } else {
-              // Failed encounter
-              playerObj.expected_grade = parseInt(playerObj.expected_grade) - 5
-              document.getElementById('text-content').textContent = encounter.actions[i].negativeResult
-            }
-            localStorage.setItem('player', JSON.stringify(playerObj))
-
-            console.log(`changed player expected grade to ${playerObj.expected_grade}`)
-
-            // Disables clicking on all action buttons after selecting one
-            hasActed = true
-
-            text = document.getElementById('text-content').textContent
-            document.getElementById('text-content').textContent = ''
-            textIndex = 0
-
-            // Function to display the text character by character
-            isLoading = true
-
-            displayText()
-
-            setTimeout(function () {
-              window.location.href = '../html/fortune.html'
-            }, text.length * 20 + 2000)
+        // Function to display the text character by character
+        let isLoading = true
+        function displayText () {
+          if (textIndex &lt; text.length) {
+            textContentElement.textContent += text.charAt(textIndex)
+            textIndex++
+            setTimeout(displayText, 20) // Adjust the delay between characters here
+          } else {
+            isLoading = false
           }
-        })
-      }
-    })
-    .catch(function (error) {
-      console.log('Error:', error)
-    })
-})
+        }
+
+        displayText()
+
+        function readText(textToRead) {
+          const utterance = new SpeechSynthesisUtterance(textToRead); 
+          window.speechSynthesis.speak(utterance);
+        }
+
+        readText(text)
+
+        const actionButtons = document.getElementsByClassName('option-button')
+        for (let i = 0; i &lt; actionButtons.length; i++) {
+          actionButtons[i].textContent = encounter.actions[i].name
+        }
+
+        let hasActed = false
+        // Set events for each action button
+        for (let i = 0; i &lt; actionButtons.length; i++) {
+          actionButtons[i].addEventListener('click', function () {
+            speechSynthesis.cancel();
+            if (!isLoading &amp;&amp; !hasActed) {
+              const index = Array.from(actionButtons).indexOf(this)
+              const statName = encounter.actions[index].statName
+              const minStat = encounter.actions[index].minStat
+
+              const playerObj = new Player(loadPlayer()).player_obj
+              const playerStats = playerObj.effects
+
+              console.log(playerObj)
+              if (playerStats[statName] > minStat) {
+                // Passed encounter
+                playerObj.expected_grade = parseInt(playerObj.expected_grade) + 5
+                document.getElementById('text-content').textContent = encounter.actions[i].positiveResult
+              } else {
+                // Failed encounter
+                playerObj.expected_grade = parseInt(playerObj.expected_grade) - 5
+                document.getElementById('text-content').textContent = encounter.actions[i].negativeResult
+              }
+              if (playerObj.expected_grade &lt; 0) {
+                playerObj.expected_grade = 0
+              }
+              if (playerObj.expected_grade > 100) {
+                playerObj.expected_grade = 100
+              }
+              localStorage.setItem('player', JSON.stringify(playerObj))
+
+              console.log(`changed player expected grade to ${playerObj.expected_grade}`)
+
+              // Disables clicking on all action buttons after selecting one
+              hasActed = true
+
+              text = document.getElementById('text-content').textContent
+              document.getElementById('text-content').textContent = ''
+              textIndex = 0
+
+              readText(text)
+
+              // Function to display the text character by character
+              isLoading = true
+
+              displayText()
+
+              playerObj.encounterIndex += 1
+              localStorage.setItem('player', JSON.stringify(playerObj))
+
+              const continueButton = document.getElementById('continue-button')
+              continueButton.style.display = 'block' // Show the Continue button
+              continueButton.addEventListener('click', function () {
+                speechSynthesis.cancel();
+                if (playerObj.encounterIndex &lt; 5) {
+                  window.location.href = '../html/fortune.html'
+                } else {
+                  window.location.href = '../html/ending.html'
+                }
+              })
+            }
+          })
+        }
+      })
+      .catch(function (error) {
+        console.log('Error:', error)
+      })
+  })
+}
 
 /**
  * Loads player object from localStorage
@@ -148,7 +182,7 @@ function loadPlayer () {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Sun Jun 11 2023 03:29:22 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Wed Jun 14 2023 01:29:00 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
