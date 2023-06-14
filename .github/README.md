@@ -8,7 +8,7 @@ Welcome to Team 404's magical journey through CSE 110! Here you will navigate th
 
 [Final Deployed Website](https://cse110-sp23-group7.github.io/cse110_rogue/html/home.html)
 
-[Documentation](../specs/docs)
+[Documentation](https://cse110-sp23-group7.github.io/cse110_rogue/specs/docs/)
 
 ## **_Version 1.1.1_**
 Features Added:-
