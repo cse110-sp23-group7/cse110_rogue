@@ -9,7 +9,11 @@
   "scripts": {
     "test:local": "npx wdio run wdio.conf.js",
     "docs": "jsdoc -c jsdoc.conf.json",
-    "wdio": "wdio run ../test/wdio.conf.js"
+    "wdio": "wdio run ../test/wdio.conf.js",
+    "lint:js": "npx eslint ../js/*.js",
+    "lint:tests": "npx eslint ../test/specs/*.js",
+    "lint:css": "npx stylelint ../css/*.css",
+    "lint:html": "npx htmlhint ../html/*.html"
   },
   "repository": {
     "type": "git",

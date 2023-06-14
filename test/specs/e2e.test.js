@@ -1,63 +1,63 @@
 /* eslint-disable no-undef */
 describe('Load Content', () => {
   it('should load the homepage correctly', async () => {
-    await browser.url('https://cse110-sp23-group7.github.io/cse110_rogue/html/home.html');
-    await expect(browser).toHaveTitle('Home');
+    await browser.url('https://cse110-sp23-group7.github.io/cse110_rogue/html/home.html')
+    await expect(browser).toHaveTitle('Home')
 
-    const audio = await $('#mysterious-suspense-sound');
-    await expect(audio).toExist();
-  });
+    const audio = await $('#mysterious-suspense-sound')
+    await expect(audio).toExist()
+  })
 
   it('should load the fortune page correctly', async () => {
-    await browser.url('https://cse110-sp23-group7.github.io/cse110_rogue/html/fortune.html');
+    await browser.url('https://cse110-sp23-group7.github.io/cse110_rogue/html/fortune.html')
 
-    const audio = await $('#mysterious-suspense-sound');
-    await expect(audio).toExist();
+    const audio = await $('#mysterious-suspense-sound')
+    await expect(audio).toExist()
 
     // TODO: more content
-  });
-});
+  })
+})
 
 describe('Navigation', () => {
   it('should navigate from home to fortune', async () => {
-    await browser.url('https://cse110-sp23-group7.github.io/cse110_rogue/html/home.html');
-    const startButton = await $('.start-button');
-    await startButton.click();
-    await expect(browser).toHaveUrl('https://cse110-sp23-group7.github.io/cse110_rogue/html/fortune.html');
-    await expect(browser).toHaveTitle('Fortune');
-  });
+    await browser.url('https://cse110-sp23-group7.github.io/cse110_rogue/html/home.html')
+    const startButton = await $('.start-button')
+    await startButton.click()
+    await expect(browser).toHaveUrl('https://cse110-sp23-group7.github.io/cse110_rogue/html/fortune.html')
+    await expect(browser).toHaveTitle('Fortune')
+  })
 
   it('should navigate from home to credits', async () => {
-    browser.url('https://cse110-sp23-group7.github.io/cse110_rogue/html/home.html');
-    const creditsButton = await $('.credits-button');
-    await creditsButton.click();
-    await expect(browser).toHaveUrl('https://cse110-sp23-group7.github.io/cse110_rogue/html/credits.html');
-    await expect(browser).toHaveTitle('Credits');
-  });
+    browser.url('https://cse110-sp23-group7.github.io/cse110_rogue/html/home.html')
+    const creditsButton = await $('.credits-button')
+    await creditsButton.click()
+    await expect(browser).toHaveUrl('https://cse110-sp23-group7.github.io/cse110_rogue/html/credits.html')
+    await expect(browser).toHaveTitle('Credits') // TODO: should be 'Credits' after html changes are pushed to github pages
+  })
 
   it('should navigate from home to help', async () => {
-    browser.url('https://cse110-sp23-group7.github.io/cse110_rogue/html/home.html');
-    const helpButton = await $('.help-button');
-    await helpButton.click();
-    await expect(browser).toHaveUrl('https://cse110-sp23-group7.github.io/cse110_rogue/html/help.html');
-    await expect(browser).toHaveTitle('Help');
-  });
+    browser.url('https://cse110-sp23-group7.github.io/cse110_rogue/html/home.html')
+    const helpButton = await $('.help-button')
+    await helpButton.click()
+    await expect(browser).toHaveUrl('https://cse110-sp23-group7.github.io/cse110_rogue/html/help.html')
+    await expect(browser).toHaveTitle('Help') // TODO: should be 'Help' after html changes are pushed to github pages
+  })
 
   it('should navigate from credits to home', async () => {
-    await browser.url('https://cse110-sp23-group7.github.io/cse110_rogue/html/credits.html');
-    const backButton = await $('.button');
-    await backButton.click();
-    await expect(browser).toHaveUrl('https://cse110-sp23-group7.github.io/cse110_rogue/html/home.html');
-    await expect(browser).toHaveTitle('Home');
-  });
+    await browser.url('https://cse110-sp23-group7.github.io/cse110_rogue/html/credits.html')
+    const backButton = await $('.button')
+    await backButton.click()
+    await expect(browser).toHaveUrl('https://cse110-sp23-group7.github.io/cse110_rogue/html/home.html')
+    await expect(browser).toHaveTitle('Home')
+  })
 
   it('should navigate from help to home', async () => {
-    await browser.url('https://cse110-sp23-group7.github.io/cse110_rogue/html/help.html');
-    const backButton = await $('.button');
-    await backButton.click();
-    await expect(browser).toHaveUrl('https://cse110-sp23-group7.github.io/cse110_rogue/html/home.html');
-    await expect(browser).toHaveTitle('Home');
-  });
+    await browser.url('https://cse110-sp23-group7.github.io/cse110_rogue/html/help.html')
+    const backButton = await $('.button')
+    await backButton.click()
+    await expect(browser).toHaveUrl('https://cse110-sp23-group7.github.io/cse110_rogue/html/home.html')
+    await expect(browser).toHaveTitle('Home')
+  })
 
   // Note: this isn't working b/c you need to choose a card first
   // it('should navigate from fortune to encounter', async () => {
@@ -75,4 +75,4 @@ describe('Navigation', () => {
   //   await expect(browser).toHaveUrl('https://cse110-sp23-group7.github.io/cse110_rogue/html/fortune.html');
   //   await expect(browser).toHaveTitle('Fortune');
   // });
-});
+})
