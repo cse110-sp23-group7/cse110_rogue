@@ -15,15 +15,15 @@ Welcome to Team 404's magical journey through CSE 110! Here you will navigate th
 
 ## Setup
 1. Clone the repository: `git clone https://github.com/cse110-sp23-group7/cse110_rogue.git`
-2. To install dependencies, first cd into the cfg folder using `cd ./cfg`
-3. Then run `npm install`
+2. To install dependencies, first cd into the cfg folder using `cd ./cfg`  
+3. Then run `npm install`. Also, run this command in the test and js folder to quickly install the eslint-standard package  
 4. You can then run the following commands in the cfg directory:
 - `npm run wdio` - runs our tests
 - `npm run docs` - generates documentation
-- `npx htmlhint "../html/*.html"` - lints html files
-- `npx stylelint "../css/*.css"` - lints css files
-- `npx eslint "../**/js/*.js"` - lints javascript files
-- `npx eslint "../**/test/specs/*.js"` - lints test files
+- `npm run lint:html` - lints html files
+- `npm run lint:css` - lints css files
+- `npm run lint:js` - lints javascript files
+- `npm run lint:tests` - lints test files
 
 ## Project Structure
 ```
