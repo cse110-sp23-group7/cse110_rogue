@@ -4,30 +4,14 @@
 # Team 404: CSE110 Roguelike Fortune Teller 
 Welcome to Team 404's magical journey through CSE 110! Here you will navigate through a busy quarter, and finish the course with the ease of a few clicks. Beware, though; your choices may cost you...
 
+[Changelog](../specs/markdown/changelog.md)
+
 [Roadmap Document](../specs/markdown/roadmap.md)
 
 [Final Deployed Website](https://cse110-sp23-group7.github.io/cse110_rogue/html/home.html)
 
 [Documentation](https://cse110-sp23-group7.github.io/cse110_rogue/specs/docs/)
 
-## **_Version 1.1.1_**
-Features Added:-
-- Text-to-Speech incorporated into encounters and the action we take.
-
-This is the final release of our project features various minor bug fixes as well as a TTS feature that provides more accessibility to our users.
-
-## **_Version 1.0.0_**
-Features Added:-
-- **Encounter Screen**: Users have the ability get directed to the encounters screen, which the third screen from the home screen. User can now see what fate they have come across and what action they want to take on that 
-- **Pixelated Assets and Buttons**: To follow the Rogue-like and pixelated theme, we changed all the assests like pictures and background, and all buttons pixelated(8-bit pixel). 
-- **Background Audio**: Added a mystial audio in the background we adds to our theme and the encounters. 
-
-We deployed the whole CI/CD Pipeline and it works efficiently  which includes Linting, Code Quality, Tests, and Documentation check. 
-
-## **_Version 0.1.0_**
-The first version of our webapp features a prototype skeleton, with a working homepage, fortune page, and the skeleton of the encounter page. Our CI/CD pipeline is still in the works. Stay tuned for future releases.
-
----
 
 ## Setup
 1. Clone the repository: `git clone https://github.com/cse110-sp23-group7/cse110_rogue.git`
