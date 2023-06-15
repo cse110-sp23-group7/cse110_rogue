@@ -75,6 +75,7 @@ cse110_rogue/
 |   |-- fortune.js
 |   |-- home.js
 |   |-- player.js
+|   |-- package.json # used to set up eslint
 |-- json/
 |   |-- encounters.json
 |   |-- fortunes.json
@@ -99,5 +100,6 @@ cse110_rogue/
 |   |   |-- player.test.js
 |   |-- eslintrc.yml
 |   |-- wdio.conf.js
+|   |-- package.json # used to set up eslint
 |-- .gitignore
 |-- index.html # automatically redirects to home.html
