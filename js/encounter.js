@@ -36,9 +36,9 @@ if (typeof window !== 'undefined') {
 
         displayText()
 
-        function readText(textToRead) {
-          const utterance = new SpeechSynthesisUtterance(textToRead); 
-          window.speechSynthesis.speak(utterance);
+        function readText (textToRead) {
+          const utterance = new SpeechSynthesisUtterance(textToRead)
+          window.speechSynthesis.speak(utterance)
         }
 
         readText(text)
@@ -52,7 +52,7 @@ if (typeof window !== 'undefined') {
         // Set events for each action button
         for (let i = 0; i < actionButtons.length; i++) {
           actionButtons[i].addEventListener('click', function () {
-            speechSynthesis.cancel();
+            speechSynthesis.cancel()
             if (!isLoading && !hasActed) {
               const index = Array.from(actionButtons).indexOf(this)
               const statName = encounter.actions[index].statName
@@ -101,7 +101,7 @@ if (typeof window !== 'undefined') {
               const continueButton = document.getElementById('continue-button')
               continueButton.style.display = 'block' // Show the Continue button
               continueButton.addEventListener('click', function () {
-                speechSynthesis.cancel();
+                speechSynthesis.cancel()
                 if (playerObj.encounterIndex < 5) {
                   window.location.href = '../html/fortune.html'
                 } else {
